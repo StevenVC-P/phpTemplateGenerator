@@ -1,0 +1,170 @@
+{
+  "design_variation_generator": {
+    "status": "success",
+    "timestamp": "2025-06-24T14:52:24.179475",
+    "output_file": "template_generations\\template_cf4d4c44\\design_variations\\design_variation_variation_20250624145224.json"
+  },
+  "pipeline_d7ac0425": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:15:10.867917",
+    "status": "completed",
+    "end_time": "2025-06-24T14:15:10.868342"
+  },
+  "request_interpreter": {
+    "status": "success",
+    "timestamp": "2025-06-24T14:52:24.176679",
+    "output_file": "template_generations\\template_cf4d4c44\\specs\\template_spec.json"
+  },
+  "pipeline_ff24312a": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:22:15.210716",
+    "status": "completed",
+    "end_time": "2025-06-24T14:22:15.211159"
+  },
+  "pipeline_dbcf1225": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:24:08.152174",
+    "status": "running"
+  },
+  "prompt_designer": {
+    "status": "success",
+    "timestamp": "2025-06-24T14:52:24.189615",
+    "output_file": "template_generations\\template_cf4d4c44\\prompts\\prompt_cf4d4c44.json"
+  },
+  "template_engineer": {
+    "status": "success",
+    "timestamp": "2025-06-24T14:52:50.514884",
+    "output_file": "template_generations\\template_cf4d4c44\\templates\\template_cf4d4c44.php"
+  },
+  "cta_optimizer": {
+    "status": "success",
+    "timestamp": "2025-06-24T14:43:13.653431",
+    "output_file": "template_generations\\template_1732d0c9\\templates\\template_1732d0c9.cta.php"
+  },
+  "code_reviewer": {
+    "status": "success",
+    "timestamp": "2025-06-24T14:43:14.101900",
+    "output_file": "template_generations\\template_1732d0c9\\templates\\template_1732d0c9.cta.review.json"
+  },
+  "design_critic": {
+    "status": "success",
+    "timestamp": "2025-06-24T14:43:14.543162",
+    "output_file": "template_generations\\template_1732d0c9\\templates\\template_000.design.md"
+  },
+  "visual_inspector": {
+    "status": "success",
+    "timestamp": "2025-06-24T14:43:15.035418",
+    "output_file": "template_generations\\template_1732d0c9\\agent_conversations\\visual_inspector_1732d0c9.json"
+  },
+  "refinement_orchestrator": {
+    "status": "error",
+    "timestamp": "2025-06-24T14:43:15.772848",
+    "message": "Missing required files: ['template_001.php', 'template_001.review.json', 'template_001.design.md', 'template_001.visual_analysis.json']"
+  },
+  "packager": {
+    "status": "error",
+    "timestamp": "2025-06-24T14:43:17.645526",
+    "message": "[Errno 2] No such file or directory: 'prompts/prompt_final.json'"
+  },
+  "pipeline_53761995": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running"
+  },
+  "pipeline_e42a839e": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_e42a839e"
+  },
+  "pipeline_634d4c9f": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_634d4c9f"
+  },
+  "pipeline_664c6909": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_664c6909"
+  },
+  "pipeline_fc9b4fbf": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_fc9b4fbf"
+  },
+  "pipeline_e31d0709": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_e31d0709"
+  },
+  "pipeline_95d9bd2e": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_95d9bd2e"
+  },
+  "pipeline_f57069c5": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_f57069c5"
+  },
+  "pipeline_f98d80a9": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_f98d80a9"
+  },
+  "pipeline_45e5d861": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:37:43.092748",
+    "status": "running",
+    "template_dir": "template_generations/template_45e5d861"
+  },
+  "pipeline_b9802dca": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:30:00",
+    "status": "running",
+    "template_dir": "template_generations/template_b9802dca"
+  },
+  "pipeline_2b6147c1": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:40:00",
+    "status": "running",
+    "template_dir": "template_generations/template_2b6147c1"
+  },
+  "pipeline_0c4c6dce": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:40:20.177031",
+    "status": "running",
+    "template_dir": "template_generations/template_0c4c6dce"
+  },
+  "pipeline_e3ae66bf": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:40:00",
+    "status": "running",
+    "template_dir": "template_generations/template_e3ae66bf"
+  },
+  "pipeline_6d9df784": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:42:00",
+    "status": "running",
+    "template_dir": "template_generations/template_6d9df784"
+  },
+  "pipeline_1732d0c9": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:43:00.565169",
+    "status": "running",
+    "template_dir": "template_generations/template_1732d0c9"
+  },
+  "pipeline_cf4d4c44": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T14:52:00",
+    "status": "running",
+    "template_dir": "template_generations/template_cf4d4c44"
+  }
+}

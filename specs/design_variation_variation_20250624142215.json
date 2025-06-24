@@ -1,0 +1,51 @@
+{
+  "variation_id": "variation_20250624142215",
+  "color_palette_strategy": "monochromatic_variation",
+  "typography_scheme": {
+    "pairing": {
+      "name": "bold_statement",
+      "heading": "Montserrat",
+      "body": "Lato",
+      "accent": "Oswald",
+      "personality": "bold, confident, impactful"
+    },
+    "scale": {
+      "name": "dramatic",
+      "h1": "4rem",
+      "h2": "3rem",
+      "h3": "2rem",
+      "body": "1.125rem"
+    }
+  },
+  "layout_structure": {
+    "hero": {
+      "name": "classic_centered",
+      "structure": "centered_content_with_background",
+      "cta_placement": "below_text",
+      "visual_weight": "balanced"
+    },
+    "section_order": "hero_features_cta_pricing_contact",
+    "grid": "card_based_flexible"
+  },
+  "component_styles": {
+    "button": {
+      "name": "soft_friendly",
+      "border_radius": "12px",
+      "padding": "1rem 2rem",
+      "shadow": "0 6px 20px rgba(0,0,0,0.08)"
+    },
+    "card": {
+      "name": "elevated_modern",
+      "border_radius": "12px",
+      "shadow": "0 4px 6px rgba(0,0,0,0.1)",
+      "border": "none"
+    }
+  },
+  "animation_preferences": [
+    "hover_lift_animations"
+  ],
+  "unique_elements": [
+    "organic_blob_shapes",
+    "geometric_dividers"
+  ]
+}

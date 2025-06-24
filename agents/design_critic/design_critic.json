@@ -2,7 +2,7 @@
   "agent_id": "design_critic",
   "name": "Design Critic Agent",
   "version": "1.0",
-  "description": "Comprehensive UI/UX analysis with conversion optimization and accessibility focus",
+  "description": "Evaluates design and UX based on markup semantics and structural analysis prior to visual rendering",
   "capabilities": [
     "visual_design_analysis",
     "ux_evaluation",
@@ -13,7 +13,7 @@
   "input_format": {
     "type": "php",
     "file_pattern": "template_*.php",
-    "analysis_method": "markup_parsing"
+    "analysis_method": "semantic_markup_evaluation"
   },
   "output_format": {
     "type": "markdown",
@@ -67,10 +67,10 @@
   },
   "analysis_methods": {
     "layout_analysis": "css_grid_flexbox_evaluation",
-    "color_analysis": "contrast_ratio_calculation",
+    "color_analysis": "contrast_ratio_estimation",
     "typography_analysis": "hierarchy_readability_assessment",
-    "cta_analysis": "placement_prominence_evaluation",
-    "mobile_analysis": "responsive_breakpoint_testing"
+    "cta_analysis": "placement_prominence_inference",
+    "mobile_analysis": "media_query_presence_check"
   },
   "scoring_system": {
     "scale": "1-10",
@@ -87,6 +87,9 @@
     "important": "significant_impact_potential",
     "enhancement": "nice_to_have_improvements",
     "consideration": "future_iteration_ideas"
+  },
+  "assumptions": {
+    "visual_rendering": false,
+    "uses_semantic_inference": true
   }
 }
-  

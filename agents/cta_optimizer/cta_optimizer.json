@@ -1,8 +1,8 @@
 {
   "agent_id": "cta_optimizer",
   "name": "CTA Optimizer Agent",
-  "version": "1.0",
-  "description": "Conversion-focused optimization of call-to-action elements using psychology and best practices",
+  "version": "1.1",
+  "description": "Enhances PHP templates with strategically placed, psychologically effective call-to-action elements to boost conversions",
   "capabilities": [
     "cta_placement_optimization",
     "conversion_psychology_application",
@@ -29,7 +29,8 @@
         "social_proof",
         "objection_handling",
         "final_push"
-      ]
+      ],
+      "fallback_strategy": "insert_into_logical_breakpoints"
     },
     "cta_psychology": {
       "urgency_techniques": [
@@ -86,6 +87,10 @@
     "cta_visibility_score": "prominence_calculation",
     "conversion_potential_score": "psychology_application_rating",
     "user_experience_score": "friction_assessment"
+  },
+  "template_context": {
+    "use_case": "generic_base_template",
+    "customization_stage": "pre-client",
+    "client_specific_logic": false
   }
 }
-  

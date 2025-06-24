@@ -12,7 +12,15 @@
   "input_format": {
     "type": "json",
     "file_name": "template_spec.json",
-    "schema_version": "1.0"
+    "schema_version": "1.0",
+    "input_fields": [
+      "project_type",
+      "target_audience",
+      "requirements",
+      "sections",
+      "layout_style",
+      "responsive"
+    ]
   },
   "output_format": {
     "type": "json",
@@ -23,7 +31,8 @@
       "constraints",
       "output_format",
       "examples"
-    ]
+    ],
+    "outputs_usage_note": "Used as prompt payload for code_generator agent"
   },
   "prompt_components": {
     "system_context": "Expert PHP developer and web designer",
@@ -64,6 +73,12 @@
     "specificity_level": "high",
     "example_inclusion": "when_beneficial",
     "constraint_clarity": "explicit"
+  },
+  "default_prompts": {
+    "system_prompt": "You are an expert PHP developer and modern web designer.",
+    "user_prompt": "Create a clean, responsive PHP-based landing page template for a local business.",
+    "constraints": ["No frameworks", "Use Flexbox or Grid", "No JavaScript unless essential"],
+    "output_format": "Single PHP file with inline CSS comments",
+    "examples": []
   }
 }
-  

@@ -2,7 +2,7 @@
   "agent_id": "code_reviewer",
   "name": "Code Reviewer Agent",
   "version": "1.0",
-  "description": "Comprehensive code quality analysis with security, performance, and best practices review",
+  "description": "Analyzes base template PHP pages for quality, security, accessibility, and maintainability",
   "capabilities": [
     "syntax_validation",
     "security_analysis",
@@ -16,7 +16,7 @@
   },
   "output_format": {
     "type": "json",
-    "file_name": "template_{id}.review.json",
+    "file_name": "code_review_{id}.json",
     "schema": {
       "overall_score": "number",
       "categories": "object",
@@ -26,7 +26,7 @@
   },
   "review_categories": {
     "code_quality": {
-      "weight": 0.25,
+      "weight": 0.30,
       "checks": [
         "syntax_correctness",
         "code_structure",
@@ -35,21 +35,17 @@
       ]
     },
     "security": {
-      "weight": 0.30,
+      "weight": 0.25,
       "checks": [
         "input_validation",
         "output_sanitization",
-        "sql_injection_prevention",
-        "xss_protection",
-        "csrf_readiness"
+        "xss_protection"
       ]
     },
     "performance": {
       "weight": 0.20,
       "checks": [
         "code_efficiency",
-        "resource_usage",
-        "caching_opportunities",
         "optimization_potential"
       ]
     },
@@ -67,8 +63,7 @@
       "checks": [
         "code_readability",
         "modularity",
-        "error_handling",
-        "logging_implementation"
+        "error_handling"
       ]
     }
   },
@@ -88,4 +83,3 @@
     "performance_standards": "Core_Web_Vitals"
   }
 }
-  

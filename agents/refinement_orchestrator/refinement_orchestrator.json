@@ -1,0 +1,52 @@
+{
+  "agent_id": "refinement_orchestrator",
+  "name": "Refinement Orchestrator Agent",
+  "version": "1.0",
+  "description": "Coordinates refinement of template using visual and review feedback until quality goals are met or max iterations reached.",
+  "capabilities": [
+    "quality_evaluation",
+    "iteration_tracking",
+    "refinement_coordination"
+  ],
+  "input_sources": {
+    "base_folder": "final/template_{id}/",
+    "required_files": [
+      "template_001.php",
+      "template_001.review.json",
+      "template_001.design.md",
+      "template_001.visual_analysis.json"
+    ]
+  },
+  "output_targets": {
+    "refined_folder": "final/template_{id}_refined/",
+    "outputs": [
+      "index.php",
+      "iteration_log.json",
+      "satisfaction_report.json"
+    ]
+  },
+  "iteration_config": {
+    "max_iterations": 5,
+    "satisfaction_thresholds": {
+      "visual_score": 8.0,
+      "conversion_score": 8.0,
+      "code_quality_score": 7.5
+    },
+    "track_metrics": [
+      "visual_score",
+      "cta_score",
+      "code_score",
+      "issues_resolved"
+    ]
+  },
+  "agents_invoked": {
+    "visual_inspector": "Simulated or pre-run analysis of updated template",
+    "improvement_planner": "Generates new change set based on visual + review data",
+    "template_modifier": "Applies changes to code based on plan"
+  },
+  "automation": {
+    "auto_approve_changes": true,
+    "rollback_on_failure": true,
+    "generate_final_report": true
+  }
+}

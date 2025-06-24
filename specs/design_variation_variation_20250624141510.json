@@ -1,0 +1,51 @@
+{
+  "variation_id": "variation_20250624141510",
+  "color_palette_strategy": "triadic_scheme",
+  "typography_scheme": {
+    "pairing": {
+      "name": "friendly_approachable",
+      "heading": "Poppins",
+      "body": "Open Sans",
+      "accent": "Nunito",
+      "personality": "friendly, approachable, warm"
+    },
+    "scale": {
+      "name": "minimal",
+      "h1": "3rem",
+      "h2": "2.25rem",
+      "h3": "1.75rem",
+      "body": "1rem"
+    }
+  },
+  "layout_structure": {
+    "hero": {
+      "name": "split_screen",
+      "structure": "text_left_visual_right",
+      "cta_placement": "inline_with_text",
+      "visual_weight": "text_heavy"
+    },
+    "section_order": "hero_features_testimonials_pricing_contact",
+    "grid": "two_column_sidebar"
+  },
+  "component_styles": {
+    "button": {
+      "name": "rounded_modern",
+      "border_radius": "8px",
+      "padding": "1rem 2rem",
+      "shadow": "0 4px 15px rgba(0,0,0,0.1)"
+    },
+    "card": {
+      "name": "soft_organic",
+      "border_radius": "20px",
+      "shadow": "0 8px 25px rgba(0,0,0,0.08)",
+      "border": "1px solid rgba(0,0,0,0.05)"
+    }
+  },
+  "animation_preferences": [
+    "color_transition_effects"
+  ],
+  "unique_elements": [
+    "subtle_geometric_grid",
+    "geometric_dividers"
+  ]
+}

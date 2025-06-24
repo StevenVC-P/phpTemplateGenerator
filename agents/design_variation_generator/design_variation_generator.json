@@ -25,7 +25,11 @@
       "layout_structure",
       "component_styles",
       "animation_preferences",
-      "unique_elements"
+      "unique_elements",
+      "personality",
+      "influenced_by_industry",
+      "variation_id",
+      "accessibility_score"
     ]
   },
   "variation_strategies": {
