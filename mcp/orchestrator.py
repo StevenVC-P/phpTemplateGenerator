@@ -159,27 +159,37 @@ class TemplatePipeline:
         pipeline_id = self.generate_pipeline_id()
         logger.info(f"📋 Pipeline ID: {pipeline_id}")
 
-        # Store request file if provided
-        if request_file:
-            self.pipeline_state[pipeline_id] = {
-                'request_file': request_file,
-                'start_time': datetime.now().isoformat(),
-                'status': 'running'
-            }
+        # Initialize pipeline-specific state
+        self.pipeline_state[pipeline_id] = {
+            'request_file': request_file,
+            'start_time': datetime.now().isoformat(),
+            'status': 'running',
+            'agents': {}
+        }
 
         for agent_id in self.pipeline:
-            state = self.pipeline_state.get(agent_id, {})
-            if state.get("status") == "success":
-                logger.info(f"⏩ Skipping {agent_id} (already completed)")
+            # Check pipeline-specific agent state, not global
+            agent_state = self.pipeline_state[pipeline_id]['agents'].get(agent_id, {})
+            if agent_state.get("status") == "success":
+                logger.info(f"⏩ Skipping {agent_id} (already completed in this pipeline)")
                 continue
 
             result = await self.run_agent(agent_id, pipeline_id)
+
+            # Store agent result in pipeline-specific state
+            self.pipeline_state[pipeline_id]['agents'][agent_id] = {
+                'status': 'success' if result.success else 'failed',
+                'output_file': result.output_file,
+                'message': result.message,
+                'timestamp': datetime.now().isoformat()
+            }
+
             if not result.success:
                 logger.error(f"🛑 Pipeline halted at {agent_id}")
                 break
 
             if agent_id == "refinement_orchestrator":
-                count = self.pipeline_state[agent_id].get("iteration_count", 1)
+                count = agent_state.get("iteration_count", 1)
                 if count > self.max_refinement_iterations:
                     logger.warning("⚠️ Max refinement iterations reached — exiting.")
                     break

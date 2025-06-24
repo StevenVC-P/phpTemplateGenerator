@@ -1,8 +1,8 @@
 {
   "design_variation_generator": {
     "status": "success",
-    "timestamp": "2025-06-24T14:52:24.179475",
-    "output_file": "template_generations\\template_cf4d4c44\\design_variations\\design_variation_variation_20250624145224.json"
+    "timestamp": "2025-06-24T15:56:01.958245",
+    "output_file": "template_generations\\template_79ca21dd\\design_variations\\design_variation_variation_20250624155601.json"
   },
   "pipeline_d7ac0425": {
     "request_file": "input/example-request.md",
@@ -12,8 +12,8 @@
   },
   "request_interpreter": {
     "status": "success",
-    "timestamp": "2025-06-24T14:52:24.176679",
-    "output_file": "template_generations\\template_cf4d4c44\\specs\\template_spec.json"
+    "timestamp": "2025-06-24T15:56:01.955248",
+    "output_file": "template_generations\\template_79ca21dd\\specs\\template_spec.json"
   },
   "pipeline_ff24312a": {
     "request_file": "input/example-request.md",
@@ -28,42 +28,42 @@
   },
   "prompt_designer": {
     "status": "success",
-    "timestamp": "2025-06-24T14:52:24.189615",
-    "output_file": "template_generations\\template_cf4d4c44\\prompts\\prompt_cf4d4c44.json"
+    "timestamp": "2025-06-24T15:56:01.956967",
+    "output_file": "template_generations\\template_79ca21dd\\prompts\\prompt_79ca21dd.json"
   },
   "template_engineer": {
     "status": "success",
-    "timestamp": "2025-06-24T14:52:50.514884",
-    "output_file": "template_generations\\template_cf4d4c44\\templates\\template_cf4d4c44.php"
+    "timestamp": "2025-06-24T15:56:01.973979",
+    "output_file": "template_generations\\template_79ca21dd\\templates\\template_79ca21dd.php"
   },
   "cta_optimizer": {
     "status": "success",
-    "timestamp": "2025-06-24T14:43:13.653431",
-    "output_file": "template_generations\\template_1732d0c9\\templates\\template_1732d0c9.cta.php"
+    "timestamp": "2025-06-24T15:56:01.994460",
+    "output_file": "template_generations\\template_79ca21dd\\templates\\template_79ca21dd.cta.php"
   },
   "code_reviewer": {
     "status": "success",
-    "timestamp": "2025-06-24T14:43:14.101900",
-    "output_file": "template_generations\\template_1732d0c9\\templates\\template_1732d0c9.cta.review.json"
+    "timestamp": "2025-06-24T15:56:02.020942",
+    "output_file": "template_generations\\template_79ca21dd\\templates\\template_79ca21dd.cta.review.json"
   },
   "design_critic": {
     "status": "success",
-    "timestamp": "2025-06-24T14:43:14.543162",
-    "output_file": "template_generations\\template_1732d0c9\\templates\\template_000.design.md"
+    "timestamp": "2025-06-24T15:56:02.017874",
+    "output_file": "template_generations\\template_79ca21dd\\templates\\template_000.design.md"
   },
   "visual_inspector": {
     "status": "success",
-    "timestamp": "2025-06-24T14:43:15.035418",
-    "output_file": "template_generations\\template_1732d0c9\\agent_conversations\\visual_inspector_1732d0c9.json"
+    "timestamp": "2025-06-24T15:56:02.019675",
+    "output_file": "template_generations\\template_79ca21dd\\agent_conversations\\visual_inspector_79ca21dd.json"
   },
   "refinement_orchestrator": {
     "status": "error",
-    "timestamp": "2025-06-24T14:43:15.772848",
+    "timestamp": "2025-06-24T15:56:02.021960",
     "message": "Missing required files: ['template_001.php', 'template_001.review.json', 'template_001.design.md', 'template_001.visual_analysis.json']"
   },
   "packager": {
     "status": "error",
-    "timestamp": "2025-06-24T14:43:17.645526",
+    "timestamp": "2025-06-24T15:48:04.098136",
     "message": "[Errno 2] No such file or directory: 'prompts/prompt_final.json'"
   },
   "pipeline_53761995": {
@@ -166,5 +166,187 @@
     "start_time": "2025-06-24T14:52:00",
     "status": "running",
     "template_dir": "template_generations/template_cf4d4c44"
+  },
+  "pipeline_f53368ec": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T15:00:01",
+    "status": "running",
+    "template_dir": "template_generations/template_f53368ec"
+  },
+  "pipeline_dc9c582a": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T15:00:02",
+    "status": "running",
+    "template_dir": "template_generations/template_dc9c582a"
+  },
+  "pipeline_3fc5fb9b": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T15:00:01",
+    "status": "running",
+    "template_dir": "template_generations/template_3fc5fb9b"
+  },
+  "pipeline_0abae0cf": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T15:00:02",
+    "status": "running",
+    "template_dir": "template_generations/template_0abae0cf"
+  },
+  "pipeline_7d42f7d9": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T15:00:01",
+    "status": "running",
+    "template_dir": "template_generations/template_7d42f7d9"
+  },
+  "pipeline_7674e871": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T15:00:02",
+    "status": "running",
+    "template_dir": "template_generations/template_7674e871"
+  },
+  "pipeline_ff26cbe3": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T15:42:46.031338",
+    "status": "completed",
+    "template_dir": "template_generations/template_ff26cbe3",
+    "end_time": "2025-06-24T15:42:46.032854"
+  },
+  "pipeline_f75b94d9": {
+    "request_file": "input/fresh-request.md",
+    "start_time": "2025-06-24T15:43:07.757793",
+    "status": "completed",
+    "template_dir": "template_generations/template_f75b94d9",
+    "end_time": "2025-06-24T15:43:07.759282"
+  },
+  "pipeline_f3437dec": {
+    "request_file": "input/example-request.md",
+    "start_time": "2025-06-24T15:43:16.436408",
+    "status": "running",
+    "template_dir": "template_generations/template_f3437dec"
+  },
+  "pipeline_78032222": {
+    "request_file": "input/fresh-request.md",
+    "start_time": "2025-06-24T15:55:22.468550",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations\\template_78032222\\specs\\template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:55:22.470999"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations\\template_78032222\\prompts\\prompt_78032222.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:55:22.480540"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations\\template_78032222\\design_variations\\design_variation_variation_20250624155522.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:55:22.482150"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations\\template_78032222\\templates\\template_78032222.php",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:55:22.497232"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations\\template_78032222\\templates\\template_78032222.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:55:22.516498"
+      },
+      "design_critic": {
+        "status": "success",
+        "output_file": "template_generations\\template_78032222\\templates\\template_000.design.md",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:55:22.537135"
+      },
+      "visual_inspector": {
+        "status": "success",
+        "output_file": "template_generations\\template_78032222\\agent_conversations\\visual_inspector_78032222.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:55:22.538753"
+      },
+      "code_reviewer": {
+        "status": "success",
+        "output_file": "template_generations\\template_78032222\\templates\\template_78032222.cta.review.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:55:22.540084"
+      },
+      "refinement_orchestrator": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Missing required files: ['template_001.php', 'template_001.review.json', 'template_001.design.md', 'template_001.visual_analysis.json']",
+        "timestamp": "2025-06-24T15:55:22.541625"
+      }
+    },
+    "template_dir": "template_generations/template_78032222",
+    "end_time": "2025-06-24T15:55:22.541785"
+  },
+  "pipeline_79ca21dd": {
+    "request_file": "input/fresh-request.md",
+    "start_time": "2025-06-24T15:56:01.953094",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations\\template_79ca21dd\\specs\\template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:56:01.955608"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations\\template_79ca21dd\\prompts\\prompt_79ca21dd.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:56:01.957285"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations\\template_79ca21dd\\design_variations\\design_variation_variation_20250624155601.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:56:01.958517"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations\\template_79ca21dd\\templates\\template_79ca21dd.php",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:56:01.974315"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations\\template_79ca21dd\\templates\\template_79ca21dd.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:56:01.994948"
+      },
+      "design_critic": {
+        "status": "success",
+        "output_file": "template_generations\\template_79ca21dd\\templates\\template_000.design.md",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:56:02.018286"
+      },
+      "visual_inspector": {
+        "status": "success",
+        "output_file": "template_generations\\template_79ca21dd\\agent_conversations\\visual_inspector_79ca21dd.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:56:02.019983"
+      },
+      "code_reviewer": {
+        "status": "success",
+        "output_file": "template_generations\\template_79ca21dd\\templates\\template_79ca21dd.cta.review.json",
+        "message": "Completed",
+        "timestamp": "2025-06-24T15:56:02.021218"
+      },
+      "refinement_orchestrator": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Missing required files: ['template_001.php', 'template_001.review.json', 'template_001.design.md', 'template_001.visual_analysis.json']",
+        "timestamp": "2025-06-24T15:56:02.022343"
+      }
+    },
+    "template_dir": "template_generations/template_79ca21dd",
+    "end_time": "2025-06-24T15:56:02.022431"
   }
 }
