@@ -1,0 +1,224 @@
+{
+  "agent_id": "visual_inspector",
+  "name": "Visual Inspector Agent",
+  "version": "1.0",
+  "description": "AI-powered visual analysis agent that captures screenshots and provides iterative design improvements until satisfaction criteria are met",
+  "capabilities": [
+    "screenshot_capture",
+    "visual_analysis",
+    "iterative_improvement",
+    "satisfaction_assessment",
+    "cross_device_testing",
+    "visual_regression_detection"
+  ],
+  "input_format": {
+    "type": "url",
+    "file_pattern": "http://localhost:*/template_*.html",
+    "analysis_method": "visual_inspection"
+  },
+  "output_format": {
+    "type": "json",
+    "file_name": "template_{id}.visual_analysis.json",
+    "includes": [
+      "screenshot_paths",
+      "visual_scores",
+      "improvement_suggestions",
+      "satisfaction_status",
+      "iteration_history"
+    ]
+  },
+  "visual_analysis_capabilities": {
+    "screenshot_capture": {
+      "devices": [
+        {
+          "name": "desktop",
+          "viewport": {"width": 1920, "height": 1080},
+          "user_agent": "desktop_chrome"
+        },
+        {
+          "name": "tablet",
+          "viewport": {"width": 768, "height": 1024},
+          "user_agent": "ipad"
+        },
+        {
+          "name": "mobile",
+          "viewport": {"width": 375, "height": 667},
+          "user_agent": "iphone"
+        }
+      ],
+      "capture_options": {
+        "full_page": true,
+        "wait_for_load": 3000,
+        "hide_scrollbars": true,
+        "quality": 90
+      }
+    },
+    "visual_metrics": {
+      "layout_analysis": [
+        "element_alignment",
+        "spacing_consistency",
+        "visual_hierarchy",
+        "content_balance"
+      ],
+      "color_analysis": [
+        "color_harmony",
+        "contrast_ratios",
+        "brand_consistency",
+        "accessibility_compliance"
+      ],
+      "typography_analysis": [
+        "font_readability",
+        "size_hierarchy",
+        "line_spacing",
+        "text_alignment"
+      ],
+      "interaction_elements": [
+        "button_prominence",
+        "cta_visibility",
+        "form_usability",
+        "navigation_clarity"
+      ]
+    }
+  },
+  "improvement_criteria": {
+    "visual_appeal": {
+      "weight": 0.25,
+      "threshold": 8.0,
+      "factors": [
+        "aesthetic_balance",
+        "color_scheme_effectiveness",
+        "visual_consistency",
+        "modern_design_principles"
+      ]
+    },
+    "usability": {
+      "weight": 0.30,
+      "threshold": 8.5,
+      "factors": [
+        "navigation_intuitiveness",
+        "content_scannability",
+        "interaction_clarity",
+        "cognitive_load_reduction"
+      ]
+    },
+    "conversion_optimization": {
+      "weight": 0.25,
+      "threshold": 8.0,
+      "factors": [
+        "cta_prominence",
+        "value_proposition_clarity",
+        "trust_signal_placement",
+        "friction_minimization"
+      ]
+    },
+    "technical_quality": {
+      "weight": 0.20,
+      "threshold": 7.5,
+      "factors": [
+        "responsive_behavior",
+        "loading_performance",
+        "cross_browser_consistency",
+        "accessibility_features"
+      ]
+    }
+  },
+  "iterative_process": {
+    "max_iterations": 5,
+    "satisfaction_threshold": 8.0,
+    "improvement_strategies": [
+      {
+        "category": "layout_issues",
+        "techniques": [
+          "spacing_adjustments",
+          "alignment_corrections",
+          "hierarchy_enhancement",
+          "balance_optimization"
+        ]
+      },
+      {
+        "category": "color_problems",
+        "techniques": [
+          "contrast_improvement",
+          "color_harmony_adjustment",
+          "accessibility_fixes",
+          "brand_alignment"
+        ]
+      },
+      {
+        "category": "typography_issues",
+        "techniques": [
+          "font_size_optimization",
+          "line_height_adjustment",
+          "hierarchy_clarification",
+          "readability_enhancement"
+        ]
+      },
+      {
+        "category": "conversion_barriers",
+        "techniques": [
+          "cta_repositioning",
+          "button_redesign",
+          "form_simplification",
+          "trust_signal_addition"
+        ]
+      }
+    ]
+  },
+  "ai_analysis_prompts": {
+    "initial_assessment": "Analyze this screenshot of a landing page. Evaluate visual appeal, usability, conversion potential, and technical quality. Provide specific, actionable improvement suggestions.",
+    "iteration_analysis": "Compare this updated screenshot with the previous version. Assess improvements made and identify remaining issues. Determine if satisfaction criteria are met.",
+    "final_evaluation": "Perform a comprehensive final assessment. Rate overall quality and confirm all major issues have been addressed."
+  },
+  "output_generation": {
+    "suggestion_format": {
+      "priority": ["critical", "high", "medium", "low"],
+      "specificity": "actionable_with_css_examples",
+      "visual_references": "annotated_screenshots",
+      "implementation_guidance": "step_by_step_instructions"
+    },
+    "satisfaction_criteria": {
+      "overall_score": "> 8.0",
+      "no_critical_issues": true,
+      "user_experience_score": "> 8.5",
+      "conversion_readiness": "> 8.0"
+    }
+  },
+  "integration_settings": {
+    "browser_automation": {
+      "engine": "selenium_or_playwright",
+      "headless": true,
+      "timeout": 30000
+    },
+    "ai_vision_service": {
+      "provider": "openai_gpt4_vision",
+      "fallback": "anthropic_claude_vision",
+      "max_image_size": "2048x2048"
+    },
+    "feedback_loop": {
+      "auto_apply_suggestions": false,
+      "require_human_approval": true,
+      "track_improvement_metrics": true
+    }
+  },
+  "quality_gates": {
+    "minimum_scores": {
+      "visual_appeal": 7.5,
+      "usability": 8.0,
+      "conversion_potential": 7.5,
+      "accessibility": 8.0
+    },
+    "critical_issues": [
+      "poor_contrast_ratios",
+      "broken_responsive_design",
+      "invisible_cta_buttons",
+      "navigation_failures"
+    ],
+    "success_indicators": [
+      "clear_visual_hierarchy",
+      "prominent_call_to_actions",
+      "consistent_branding",
+      "mobile_optimization",
+      "fast_loading_appearance"
+    ]
+  }
+}

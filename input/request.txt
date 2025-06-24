@@ -1,0 +1,1 @@
+Build a simple WordPress template for a Minnesota local service business. Keep it clean and mobile-friendly. Include at least 3 call-to-actions.

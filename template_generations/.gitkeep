@@ -1,0 +1,2 @@
+# This file ensures the template_generations directory is tracked by Git
+# Individual template generation folders will be ignored but the structure is preserved

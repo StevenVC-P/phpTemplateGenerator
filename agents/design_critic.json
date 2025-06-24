@@ -1,0 +1,92 @@
+{
+  "agent_id": "design_critic",
+  "name": "Design Critic Agent",
+  "version": "1.0",
+  "description": "Comprehensive UI/UX analysis with conversion optimization and accessibility focus",
+  "capabilities": [
+    "visual_design_analysis",
+    "ux_evaluation",
+    "conversion_optimization",
+    "accessibility_assessment",
+    "mobile_responsiveness_review"
+  ],
+  "input_format": {
+    "type": "php",
+    "file_pattern": "template_*.php",
+    "analysis_method": "markup_parsing"
+  },
+  "output_format": {
+    "type": "markdown",
+    "file_name": "template_{id}.design.md",
+    "sections": [
+      "executive_summary",
+      "visual_design_assessment",
+      "ux_evaluation",
+      "conversion_analysis",
+      "accessibility_review",
+      "recommendations"
+    ]
+  },
+  "evaluation_criteria": {
+    "visual_design": {
+      "weight": 0.25,
+      "aspects": [
+        "color_scheme_effectiveness",
+        "typography_hierarchy",
+        "visual_balance",
+        "brand_consistency"
+      ]
+    },
+    "user_experience": {
+      "weight": 0.30,
+      "aspects": [
+        "navigation_clarity",
+        "information_architecture",
+        "user_flow_optimization",
+        "cognitive_load"
+      ]
+    },
+    "conversion_optimization": {
+      "weight": 0.25,
+      "aspects": [
+        "cta_placement",
+        "value_proposition_clarity",
+        "trust_signals",
+        "friction_reduction"
+      ]
+    },
+    "technical_implementation": {
+      "weight": 0.20,
+      "aspects": [
+        "responsive_design",
+        "loading_performance",
+        "cross_browser_compatibility",
+        "accessibility_compliance"
+      ]
+    }
+  },
+  "analysis_methods": {
+    "layout_analysis": "css_grid_flexbox_evaluation",
+    "color_analysis": "contrast_ratio_calculation",
+    "typography_analysis": "hierarchy_readability_assessment",
+    "cta_analysis": "placement_prominence_evaluation",
+    "mobile_analysis": "responsive_breakpoint_testing"
+  },
+  "scoring_system": {
+    "scale": "1-10",
+    "categories": [
+      "visual_appeal",
+      "usability",
+      "conversion_potential",
+      "accessibility",
+      "mobile_experience"
+    ]
+  },
+  "recommendation_types": {
+    "critical": "immediate_attention_required",
+    "important": "significant_impact_potential",
+    "enhancement": "nice_to_have_improvements",
+    "consideration": "future_iteration_ideas"
+  }
+}
+  

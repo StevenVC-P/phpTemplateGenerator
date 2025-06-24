@@ -1,0 +1,149 @@
+{
+  "agent_id": "request_interpreter",
+  "name": "Request Interpreter Agent",
+  "version": "1.0",
+  "description": "Parses natural language requests into structured template specifications",
+  "capabilities": [
+    "natural_language_processing",
+    "requirement_extraction",
+    "specification_generation",
+    "validation_and_verification"
+  ],
+  "input_format": {
+    "type": "markdown",
+    "file_extension": ".md",
+    "required_sections": [
+      "project_description",
+      "requirements",
+      "target_audience"
+    ],
+    "optional_sections": [
+      "design_preferences",
+      "technical_requirements",
+      "deliverables"
+    ]
+  },
+  "output_format": {
+    "type": "json",
+    "file_name": "template_spec.json",
+    "schema_version": "1.0"
+  },
+  "design_variation_engine": {
+    "color_schemes": [
+      {
+        "name": "professional_blue",
+        "primary": "#2563eb",
+        "secondary": "#10b981",
+        "accent": "#f59e0b"
+      },
+      {
+        "name": "modern_purple",
+        "primary": "#7c3aed",
+        "secondary": "#ec4899",
+        "accent": "#06b6d4"
+      },
+      {
+        "name": "corporate_green",
+        "primary": "#059669",
+        "secondary": "#dc2626",
+        "accent": "#7c2d12"
+      },
+      {
+        "name": "tech_orange",
+        "primary": "#ea580c",
+        "secondary": "#0891b2",
+        "accent": "#65a30d"
+      },
+      {
+        "name": "elegant_navy",
+        "primary": "#1e40af",
+        "secondary": "#be185d",
+        "accent": "#a855f7"
+      }
+    ],
+    "layout_styles": [
+      {
+        "name": "centered_hero",
+        "description": "Traditional centered hero with symmetrical layout",
+        "hero_alignment": "center",
+        "features_layout": "grid_3_column"
+      },
+      {
+        "name": "split_hero",
+        "description": "Hero with text on left, visual on right",
+        "hero_alignment": "split",
+        "features_layout": "alternating_rows"
+      },
+      {
+        "name": "full_width_hero",
+        "description": "Full-width hero with overlay text",
+        "hero_alignment": "overlay",
+        "features_layout": "card_carousel"
+      },
+      {
+        "name": "minimal_hero",
+        "description": "Minimal hero with focus on typography",
+        "hero_alignment": "left",
+        "features_layout": "list_style"
+      }
+    ],
+    "typography_styles": [
+      {
+        "name": "modern_sans",
+        "primary_font": "Inter",
+        "heading_weight": "700",
+        "body_weight": "400"
+      },
+      {
+        "name": "elegant_serif",
+        "primary_font": "Playfair Display",
+        "secondary_font": "Source Sans Pro",
+        "heading_weight": "600"
+      },
+      {
+        "name": "tech_mono",
+        "primary_font": "JetBrains Mono",
+        "secondary_font": "Inter",
+        "heading_weight": "500"
+      }
+    ]
+  },
+  "defaults": {
+    "location": {
+      "city": "Eden Prairie",
+      "state": "Minnesota",
+      "region": "Twin Cities Metro"
+    },
+    "service_type": "Generic Local Service",
+    "design_style": "randomized_from_variations",
+    "cta_count": 3,
+    "color_scheme": "randomized_from_palette",
+    "responsive": true
+  },
+  "validation_rules": {
+    "required_fields": [
+      "template_id",
+      "project_type",
+      "requirements",
+      "target_audience"
+    ],
+    "project_types": [
+      "saas_landing_page",
+      "local_service_page",
+      "ecommerce_page",
+      "portfolio_site",
+      "corporate_website"
+    ]
+  },
+  "error_handling": {
+    "missing_information": "request_clarification",
+    "invalid_project_type": "suggest_alternatives",
+    "conflicting_requirements": "highlight_conflicts"
+  },
+  "quality_metrics": {
+    "completeness_threshold": 0.8,
+    "clarity_threshold": 0.7,
+    "feasibility_threshold": 0.9
+  }
+}
+  

@@ -1,0 +1,69 @@
+{
+  "agent_id": "prompt_designer",
+  "name": "Prompt Designer Agent",
+  "version": "1.0",
+  "description": "Creates optimized AI prompts for template generation based on structured specifications",
+  "capabilities": [
+    "prompt_engineering",
+    "context_optimization",
+    "instruction_crafting",
+    "template_specific_prompting"
+  ],
+  "input_format": {
+    "type": "json",
+    "file_name": "template_spec.json",
+    "schema_version": "1.0"
+  },
+  "output_format": {
+    "type": "json",
+    "file_name": "prompt_{id}.json",
+    "includes": [
+      "system_prompt",
+      "user_prompt",
+      "constraints",
+      "output_format",
+      "examples"
+    ]
+  },
+  "prompt_components": {
+    "system_context": "Expert PHP developer and web designer",
+    "technical_requirements": [
+      "modern_php_practices",
+      "responsive_design",
+      "security_best_practices",
+      "performance_optimization"
+    ],
+    "design_elements": [
+      "layout_structure",
+      "color_schemes",
+      "typography",
+      "cta_placements",
+      "section_organization"
+    ],
+    "quality_standards": [
+      "clean_code",
+      "semantic_html",
+      "accessibility",
+      "cross_browser_compatibility"
+    ]
+  },
+  "template_types": {
+    "saas_landing_page": {
+      "sections": ["hero", "features", "pricing", "testimonials", "contact"],
+      "focus": "conversion_optimization",
+      "cta_strategy": "multiple_strategic_placement"
+    },
+    "local_service_page": {
+      "sections": ["hero", "services", "about", "testimonials", "contact"],
+      "focus": "local_seo_trust_building",
+      "cta_strategy": "call_now_emphasis"
+    }
+  },
+  "optimization_rules": {
+    "prompt_length": "detailed_but_focused",
+    "specificity_level": "high",
+    "example_inclusion": "when_beneficial",
+    "constraint_clarity": "explicit"
+  }
+}
+  

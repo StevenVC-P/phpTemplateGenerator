@@ -1,0 +1,24 @@
+{
+  "prompt_id": "prompt_001",
+  "template_id": "template_001",
+  "agent": "template_generator",
+  "prompt_type": "template_creation",
+  "content": {
+    "system_prompt": "You are an expert PHP developer and web designer specializing in creating modern, responsive landing page templates. Create clean, professional code that follows best practices.",
+    "user_prompt": "Create a modern SaaS landing page template with the following specifications:\n\n**Design Requirements:**\n- Modern minimalist style\n- Blue (#2563eb) and white color scheme with green (#10b981) accents\n- Inter font family\n- Single-page responsive layout\n\n**Sections Required:**\n1. Hero section with headline, subheadline, CTA button, and hero image\n2. Features section with grid layout, icons, and descriptions\n3. Pricing table with 3 tiers and feature comparison\n4. Contact form with validation and success message\n\n**Technical Requirements:**\n- Pure PHP (no frameworks)\n- HTML5 semantic markup\n- Custom CSS with flexbox/grid\n- Vanilla JavaScript for interactions\n- Client and server-side validation\n- Cross-browser compatible\n\n**Target Audience:**\n- Small to medium businesses\n- Tech entrepreneurs\n- SaaS product owners\n\nProvide complete, production-ready code with proper structure, comments, and documentation.",
+    "constraints": [
+      "No external frameworks or libraries",
+      "Mobile-first responsive design",
+      "Semantic HTML5 markup",
+      "Clean, maintainable code",
+      "Proper form validation",
+      "Cross-browser compatibility"
+    ],
+    "output_format": "complete_php_template"
+  },
+  "metadata": {
+    "created_at": "2025-06-23T14:33:00Z",
+    "spec_version": "1.0",
+    "priority": "high"
+  }
+}

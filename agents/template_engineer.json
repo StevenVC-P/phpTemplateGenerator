@@ -1,0 +1,67 @@
+{
+  "agent_id": "template_engineer",
+  "name": "Template Engineer Agent",
+  "version": "1.0",
+  "description": "Generates production-ready PHP templates with modern practices and security",
+  "capabilities": [
+    "php_code_generation",
+    "responsive_design",
+    "security_implementation",
+    "performance_optimization",
+    "accessibility_compliance"
+  ],
+  "input_format": {
+    "type": "json",
+    "file_name": "prompt_{id}.json",
+    "additional_inputs": [
+      "design_variation_{id}.json"
+    ]
+  },
+  "output_format": {
+    "type": "php",
+    "file_name": "template_{id}.php",
+    "includes": [
+      "complete_html_structure",
+      "embedded_css",
+      "form_handling",
+      "security_measures"
+    ]
+  },
+  "technical_standards": {
+    "php_version": "7.4+",
+    "html_version": "HTML5",
+    "css_version": "CSS3",
+    "javascript": "vanilla_es6",
+    "framework_compatibility": ["standalone", "wordpress_ready"],
+    "security_practices": [
+      "input_sanitization",
+      "output_escaping",
+      "csrf_protection_ready",
+      "sql_injection_prevention"
+    ]
+  },
+  "design_requirements": {
+    "responsive_design": true,
+    "mobile_first": true,
+    "cross_browser_support": ["chrome", "firefox", "safari", "edge"],
+    "accessibility_level": "WCAG_2.1_AA",
+    "performance_targets": {
+      "page_load_time": "< 3 seconds",
+      "lighthouse_score": "> 90"
+    }
+  },
+  "code_structure": {
+    "file_organization": "single_file_template",
+    "css_approach": "embedded_with_variables",
+    "javascript_inclusion": "minimal_inline",
+    "php_structure": "procedural_with_functions",
+    "comments": "comprehensive"
+  },
+  "validation_checks": {
+    "syntax_validation": true,
+    "security_scan": true,
+    "performance_check": true,
+    "accessibility_audit": true
+  }
+}
+  

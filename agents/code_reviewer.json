@@ -1,0 +1,91 @@
+{
+  "agent_id": "code_reviewer",
+  "name": "Code Reviewer Agent",
+  "version": "1.0",
+  "description": "Comprehensive code quality analysis with security, performance, and best practices review",
+  "capabilities": [
+    "syntax_validation",
+    "security_analysis",
+    "performance_optimization",
+    "best_practices_enforcement",
+    "accessibility_compliance"
+  ],
+  "input_format": {
+    "type": "php",
+    "file_pattern": "template_*.php"
+  },
+  "output_format": {
+    "type": "json",
+    "file_name": "template_{id}.review.json",
+    "schema": {
+      "overall_score": "number",
+      "categories": "object",
+      "recommendations": "array",
+      "compliance": "object"
+    }
+  },
+  "review_categories": {
+    "code_quality": {
+      "weight": 0.25,
+      "checks": [
+        "syntax_correctness",
+        "code_structure",
+        "naming_conventions",
+        "documentation_quality"
+      ]
+    },
+    "security": {
+      "weight": 0.30,
+      "checks": [
+        "input_validation",
+        "output_sanitization",
+        "sql_injection_prevention",
+        "xss_protection",
+        "csrf_readiness"
+      ]
+    },
+    "performance": {
+      "weight": 0.20,
+      "checks": [
+        "code_efficiency",
+        "resource_usage",
+        "caching_opportunities",
+        "optimization_potential"
+      ]
+    },
+    "accessibility": {
+      "weight": 0.15,
+      "checks": [
+        "semantic_html",
+        "aria_labels",
+        "keyboard_navigation",
+        "color_contrast"
+      ]
+    },
+    "maintainability": {
+      "weight": 0.10,
+      "checks": [
+        "code_readability",
+        "modularity",
+        "error_handling",
+        "logging_implementation"
+      ]
+    }
+  },
+  "scoring_system": {
+    "scale": "1-10",
+    "thresholds": {
+      "excellent": 9.0,
+      "good": 7.5,
+      "acceptable": 6.0,
+      "needs_improvement": 4.0
+    }
+  },
+  "compliance_standards": {
+    "php_standards": "PSR-12",
+    "security_standards": "OWASP_Top_10",
+    "accessibility_standards": "WCAG_2.1_AA",
+    "performance_standards": "Core_Web_Vitals"
+  }
+}
+  

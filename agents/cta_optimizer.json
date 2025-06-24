@@ -1,0 +1,91 @@
+{
+  "agent_id": "cta_optimizer",
+  "name": "CTA Optimizer Agent",
+  "version": "1.0",
+  "description": "Conversion-focused optimization of call-to-action elements using psychology and best practices",
+  "capabilities": [
+    "cta_placement_optimization",
+    "conversion_psychology_application",
+    "ab_testing_preparation",
+    "urgency_scarcity_implementation",
+    "trust_signal_enhancement"
+  ],
+  "input_format": {
+    "type": "php",
+    "file_name": "template_{id}.php"
+  },
+  "output_format": {
+    "type": "php",
+    "file_name": "template_{id}.cta.php",
+    "enhancement_type": "conversion_optimized_variant"
+  },
+  "optimization_strategy": {
+    "cta_placement": {
+      "minimum_count": 3,
+      "optimal_count": 5,
+      "strategic_zones": [
+        "hero_primary",
+        "value_proposition",
+        "social_proof",
+        "objection_handling",
+        "final_push"
+      ]
+    },
+    "cta_psychology": {
+      "urgency_techniques": [
+        "limited_time_offers",
+        "countdown_timers",
+        "stock_scarcity"
+      ],
+      "social_proof": [
+        "customer_count",
+        "testimonial_integration",
+        "trust_badges"
+      ],
+      "risk_reversal": [
+        "money_back_guarantee",
+        "free_trial_emphasis",
+        "no_commitment_messaging"
+      ]
+    },
+    "design_optimization": {
+      "color_psychology": "high_contrast_attention_grabbing",
+      "size_prominence": "larger_than_surrounding_elements",
+      "whitespace_usage": "adequate_breathing_room",
+      "button_styling": "modern_rounded_shadows"
+    }
+  },
+  "cta_types": {
+    "primary": {
+      "purpose": "main_conversion_goal",
+      "style": "prominent_contrasting",
+      "placement": "above_fold_multiple"
+    },
+    "secondary": {
+      "purpose": "alternative_engagement",
+      "style": "subtle_but_visible",
+      "placement": "strategic_throughout"
+    },
+    "micro": {
+      "purpose": "progressive_commitment",
+      "style": "low_friction",
+      "placement": "content_integrated"
+    }
+  },
+  "ab_testing_preparation": {
+    "variant_generation": true,
+    "tracking_implementation": "google_analytics_ready",
+    "conversion_events": [
+      "cta_clicks",
+      "form_submissions",
+      "phone_calls",
+      "email_signups"
+    ]
+  },
+  "quality_metrics": {
+    "cta_visibility_score": "prominence_calculation",
+    "conversion_potential_score": "psychology_application_rating",
+    "user_experience_score": "friction_assessment"
+  }
+}
+  
