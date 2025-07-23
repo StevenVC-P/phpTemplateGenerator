@@ -50,35 +50,73 @@ class PromptDesigner:
 
     def create_prompt(self, template_spec: Dict) -> Dict:
         project_type = template_spec.get("project_type", "local_service_page")
-        target = ", ".join(template_spec.get("target_audience", []))
-        requirements = ", ".join(template_spec.get("requirements", []))
+        business_name = template_spec.get("business_name", "Professional Service")
+        services = template_spec.get("services", ["Professional Services"])
+        location = template_spec.get("location", {})
+        target_audience = template_spec.get("target_audience", "")
+        requirements = template_spec.get("requirements", "")
+        design_preferences = template_spec.get("design_preferences", "")
         sections = ", ".join(template_spec.get("sections", []))
 
-        system_prompt = "You are an expert PHP developer and modern web designer."
+        # Extract key requirements as bullet points
+        req_lines = [line.strip() for line in requirements.split('\n') if line.strip().startswith('-')]
+        requirements_list = "\n".join(req_lines) if req_lines else requirements
+
+        # Extract design preferences as bullet points
+        design_lines = [line.strip() for line in design_preferences.split('\n') if line.strip().startswith('-')]
+        design_list = "\n".join(design_lines) if design_lines else design_preferences
+
+        system_prompt = "You are an expert PHP developer and modern web designer specializing in creating professional, conversion-focused landing pages."
 
         user_prompt = f"""
-Design a clean, responsive PHP landing page for a {project_type.replace('_', ' ')}.
-Target Audience: {target}
-Requirements: {requirements}
-Sections: {sections}
+Create a professional PHP landing page template for "{business_name}" - a {project_type.replace('_', ' ')}.
+
+BUSINESS DETAILS:
+- Business Name: {business_name}
+- Services Offered: {', '.join(services)}
+- Location: {location.get('city', 'Local Area')}, {location.get('state', 'State')}
+- Primary CTA: {template_spec.get('primary_cta', 'Contact Us')}
+
+TARGET AUDIENCE:
+{target_audience}
+
+REQUIREMENTS:
+{requirements_list}
+
+DESIGN PREFERENCES:
+{design_list}
+
+SECTIONS TO INCLUDE: {sections}
+
+The template should be specifically tailored to this business, using the actual business name, services, and location throughout the content. Create realistic, relevant content that matches the business type and target audience.
+
 Ensure code quality, semantic HTML, and good accessibility practices.
 """
 
         constraints = [
-            "Use modern PHP practices",
+            "Use the actual business name and services throughout the template",
+            "Create location-specific content and references",
+            "Use modern PHP practices with proper form handling",
             "Responsive layout using Flexbox or Grid",
-            "No frameworks",
-            "Minimal JavaScript"
+            "No external frameworks or dependencies",
+            "Minimal JavaScript, focus on CSS for interactions",
+            "Include realistic testimonials and content relevant to the business type"
         ]
 
         return {
             "agent_id": "prompt_designer",
             "status": "complete",
             "timestamp": datetime.now().isoformat(),
+            "business_context": {
+                "name": business_name,
+                "services": services,
+                "location": location,
+                "project_type": project_type
+            },
             "system_prompt": system_prompt.strip(),
             "user_prompt": user_prompt.strip(),
             "constraints": constraints,
-            "output_format": "One complete PHP file with all layout and style embedded or clearly documented.",
+            "output_format": "One complete PHP file with business-specific content, embedded CSS, and proper form handling.",
             "examples": []
         }
 

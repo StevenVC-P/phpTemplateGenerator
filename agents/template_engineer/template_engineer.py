@@ -19,6 +19,13 @@ class TemplateEngineer:
         system_context = prompt_data.get("system_prompt", "")
         user_request = prompt_data.get("user_prompt", "")
 
+        # Extract business context from prompt data
+        business_context = prompt_data.get("business_context", {})
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        project_type = business_context.get("project_type", "local_service_page")
+
         # Extract design variation details
         color_strategy = design_data.get("color_palette_strategy", "monochromatic")
         layout_structure = design_data.get("layout_structure", {})
@@ -32,6 +39,9 @@ class TemplateEngineer:
         button_style = component_styles.get("button", {}).get("name", "rounded_modern")
 
         print(f"🎨 Generating template with:")
+        print(f"   Business: {business_name}")
+        print(f"   Services: {services}")
+        print(f"   Location: {location.get('city', 'Local')}")
         print(f"   Color Strategy: {color_strategy}")
         print(f"   Hero Style: {hero_style}")
         print(f"   Typography: {typography_pairing}")
@@ -40,26 +50,56 @@ class TemplateEngineer:
         # Generate dramatically different CSS based on design variation
         css = self.generate_variation_css(color_strategy, hero_style, typography_pairing, button_style, unique_elements)
 
-        # Generate completely different HTML structure based on layout
-        html_content = self.generate_variation_html(hero_style, layout_structure, component_styles)
+        # Generate completely different HTML structure based on layout with business context
+        html_content = self.generate_variation_html(hero_style, layout_structure, component_styles, business_context)
 
         # Get fonts for this typography pairing
         fonts = self.get_typography_fonts(typography_pairing)
 
         return f"""<?php
-// AI-Generated Template with Dramatic Design Variation
-// Color Strategy: {color_strategy}
-// Hero Style: {hero_style}
-// Typography: {typography_pairing}
-// Button Style: {button_style}
+// AI-Generated Template for {business_name}
+// Business Type: {project_type}
+// Location: {location.get('city', 'Local Area')}, {location.get('state', 'State')}
+// Services: {', '.join(services)}
+// Design Variation - Color Strategy: {color_strategy}, Hero Style: {hero_style}
+// Typography: {typography_pairing}, Button Style: {button_style}
 // Unique Elements: {', '.join(unique_elements)}
+
+// Handle form submission
+$form_submitted = false;
+$form_errors = [];
+$success_message = '';
+
+if ($_POST) {{
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    // Basic validation
+    if (empty($name)) {{
+        $form_errors[] = 'Name is required';
+    }}
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {{
+        $form_errors[] = 'Valid email is required';
+    }}
+    if (empty($message)) {{
+        $form_errors[] = 'Message is required';
+    }}
+
+    if (empty($form_errors)) {{
+        // Process form (save to database, send email, etc.)
+        $success_message = 'Thank you for contacting {business_name}! We\\'ll get back to you soon.';
+        $form_submitted = true;
+    }}
+}}
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional service page with unique design variation">
-    <title>Professional Service Page - {hero_style.replace('_', ' ').title()}</title>
+    <meta name="description" content="{business_name} - Professional {project_type.replace('_', ' ')} in {location.get('city', 'Local Area')}, {location.get('state', 'State')}">
+    <title>{business_name} - {project_type.replace('_', ' ').title()}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="{fonts['google_fonts_url']}" rel="stylesheet">
@@ -248,6 +288,146 @@ class TemplateEngineer:
             margin-bottom: 2rem;
         }}"""
 
+        elif hero_style == "asymmetric_grid":
+            return f"""
+
+        /* Asymmetric Grid Hero */
+        .hero {{
+            background: linear-gradient(135deg, {colors["bg"]} 0%, {colors["light"]} 100%);
+            padding: 4rem 0;
+            overflow: hidden;
+        }}
+
+        .hero-grid {{
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            grid-template-rows: auto auto;
+            gap: 2rem;
+            align-items: center;
+            min-height: 70vh;
+        }}
+
+        .hero h1 {{
+            font-size: 3.5rem;
+            color: {colors["primary"]};
+            grid-column: 1 / 3;
+            font-weight: 800;
+            line-height: 1.1;
+        }}
+
+        .hero p {{
+            font-size: 1.25rem;
+            color: {colors["text"]};
+            grid-column: 1 / 2;
+        }}
+
+        .hero-visual {{
+            grid-column: 3 / 4;
+            grid-row: 1 / 3;
+            background: linear-gradient(45deg, {colors["secondary"]}, {colors["accent"]});
+            border-radius: 20px;
+            height: 100%;
+            min-height: 300px;
+        }}"""
+
+        elif hero_style == "diagonal_split":
+            return f"""
+
+        /* Diagonal Split Hero */
+        .hero {{
+            background: linear-gradient(135deg, {colors["primary"]} 0%, {colors["secondary"]} 100%);
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }}
+
+        .hero::before {{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: {colors["bg"]};
+            transform: skewX(-15deg);
+            transform-origin: top right;
+            z-index: 1;
+        }}
+
+        .hero-content {{
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }}
+
+        .hero h1 {{
+            font-size: 4rem;
+            color: white;
+            font-weight: 900;
+            line-height: 1.1;
+        }}
+
+        .hero p {{
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin: 2rem 0;
+        }}"""
+
+        elif hero_style == "layered_parallax":
+            return f"""
+
+        /* Layered Parallax Hero */
+        .hero {{
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, {colors["primary"]} 0%, {colors["secondary"]} 100%);
+        }}
+
+        .hero-layer {{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }}
+
+        .hero-layer-1 {{
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><circle cx="200" cy="200" r="100" fill="{colors["accent"]}" opacity="0.1"/><circle cx="800" cy="400" r="150" fill="{colors["light"]}" opacity="0.1"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }}
+
+        .hero-layer-2 {{
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><polygon points="100,100 300,50 400,200 200,250" fill="{colors["secondary"]}" opacity="0.05"/></svg>');
+            animation: float 8s ease-in-out infinite reverse;
+        }}
+
+        .hero-content {{
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+        }}
+
+        .hero h1 {{
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }}
+
+        @keyframes float {{
+            0%, 100% {{ transform: translateY(0px) rotate(0deg); }}
+            50% {{ transform: translateY(-20px) rotate(2deg); }}
+        }}"""
+
         else:  # default
             return f"""
 
@@ -379,32 +559,47 @@ class TemplateEngineer:
 
         return css
 
-    def generate_variation_html(self, hero_style, layout_structure, component_styles):
-        """Generate completely different HTML structures"""
+    def generate_variation_html(self, hero_style, layout_structure, component_styles, business_context):
+        """Generate completely different HTML structures with business-specific content"""
 
         if hero_style == "split_layout" or hero_style == "split_screen":
-            return self.generate_split_layout_html()
+            return self.generate_split_layout_html(business_context)
         elif hero_style == "minimal_focus":
-            return self.generate_minimal_focus_html()
+            return self.generate_minimal_focus_html(business_context)
         elif hero_style == "overlay_hero":
-            return self.generate_overlay_hero_html()
+            return self.generate_overlay_hero_html(business_context)
+        elif hero_style == "asymmetric_grid":
+            return self.generate_asymmetric_grid_html(business_context)
+        elif hero_style == "diagonal_split":
+            return self.generate_diagonal_split_html(business_context)
+        elif hero_style == "layered_parallax":
+            return self.generate_layered_parallax_html(business_context)
+        elif hero_style == "card_mosaic":
+            return self.generate_card_mosaic_html(business_context)
+        elif hero_style == "timeline_flow":
+            return self.generate_timeline_flow_html(business_context)
         else:
-            return self.generate_classic_centered_html()
+            return self.generate_classic_centered_html(business_context)
 
-    def generate_split_layout_html(self):
+    def generate_split_layout_html(self, business_context):
         """Split layout with image/content side by side"""
-        return """    <!-- Split Layout Hero -->
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        city = location.get("city", "Local Area")
+
+        return f"""    <!-- Split Layout Hero -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Transform Your Business Today</h1>
-                    <p>Experience the difference with our innovative approach to service delivery. We combine expertise with cutting-edge solutions.</p>
+                    <h1>Welcome to {business_name}</h1>
+                    <p>Experience the difference with our professional {services[0].lower()} approach. We combine expertise with innovative solutions for {city} businesses.</p>
                     <a href="#contact" class="btn btn-primary">Start Your Journey</a>
                 </div>
                 <div class="hero-visual">
                     <div style="background: rgba(255,255,255,0.2); height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
-                        Visual Element
+                        {business_name}
                     </div>
                 </div>
             </div>
@@ -412,25 +607,25 @@ class TemplateEngineer:
     </section>
 
     <!-- Services Grid -->
-    <section class="services" style="padding: 6rem 0; background: white;">
+    <section id="services" class="services" style="padding: 6rem 0; background: white;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Our Expertise</h2>
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Our Services</h2>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div style="padding: 2rem; background: #f8fafc; border-left: 4px solid #2563eb;">
-                    <h3 style="color: #2563eb; margin-bottom: 1rem;">Strategy</h3>
-                    <p>Comprehensive planning and strategic guidance for sustainable growth.</p>
-                </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">"""
 
-                <div style="padding: 2rem; background: #f8fafc; border-left: 4px solid #f59e0b;">
-                    <h3 style="color: #f59e0b; margin-bottom: 1rem;">Execution</h3>
-                    <p>Flawless implementation with attention to every detail.</p>
-                </div>
+        # Generate dynamic services for split layout
+        colors = ["#2563eb", "#f59e0b", "#059669", "#dc2626", "#7c3aed", "#0891b2"]
+        services_html = ""
+        for i, service in enumerate(services):
+            color = colors[i % len(colors)]
+            description = self.generate_service_description(service, business_name)
+            services_html += f"""
+                <div style="padding: 2rem; background: #f8fafc; border-left: 4px solid {color};">
+                    <h3 style="color: {color}; margin-bottom: 1rem;">{service}</h3>
+                    <p>{description}</p>
+                </div>"""
 
-                <div style="padding: 2rem; background: #f8fafc; border-left: 4px solid #059669;">
-                    <h3 style="color: #059669; margin-bottom: 1rem;">Results</h3>
-                    <p>Measurable outcomes that drive your business forward.</p>
-                </div>
+        return services_html + f"""
             </div>
         </div>
     </section>
@@ -438,20 +633,35 @@ class TemplateEngineer:
     <!-- Contact -->
     <section id="contact" style="background: #1f2937; color: white; padding: 4rem 0; text-align: center;">
         <div class="container">
-            <h2 style="color: white; margin-bottom: 2rem;">Ready to Begin?</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.25rem;">Let's discuss how we can help transform your business.</p>
+            <h2 style="color: white; margin-bottom: 2rem;">Contact {business_name}</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.25rem;">Ready to get started? Let's discuss how we can help your business succeed.</p>
             <a href="tel:555-555-5555" class="btn btn-primary" style="margin-right: 1rem;">Call Now</a>
-            <a href="mailto:info@business.com" class="btn" style="background: transparent; border: 2px solid white; color: white;">Get Quote</a>
+            <a href="mailto:info@{business_name.lower().replace(' ', '')}.com" class="btn" style="background: transparent; border: 2px solid white; color: white;">Get Quote</a>
         </div>
     </section>"""
 
-    def generate_minimal_focus_html(self):
+    def generate_minimal_focus_html(self, business_context):
         """Minimal, typography-focused layout"""
-        return """    <!-- Minimal Header -->
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        city = location.get("city", "Local Area")
+
+        # Generate dynamic services for minimal layout
+        services_html = ""
+        for i, service in enumerate(services[:3]):  # Limit to 3 for minimal layout
+            description = self.generate_service_description(service, business_name)
+            services_html += f"""
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2563eb;">{i+1:02d}. {service}</h3>
+                    <p style="font-size: 1.125rem; line-height: 1.7; color: #4b5563;">{description}</p>
+                </div>"""
+
+        return f"""    <!-- Minimal Header -->
     <header style="background: white; padding: 1rem 0; border-bottom: 1px solid #e5e7eb;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
             <nav style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="font-weight: 700; font-size: 1.25rem;">BUSINESS</div>
+                <div style="font-weight: 700; font-size: 1.25rem;">{business_name.upper()}</div>
                 <div>
                     <a href="#services" style="color: #374151; text-decoration: none; margin-left: 2rem;">Services</a>
                     <a href="#contact" style="color: #374151; text-decoration: none; margin-left: 2rem;">Contact</a>
@@ -463,8 +673,8 @@ class TemplateEngineer:
     <!-- Minimal Hero -->
     <section class="hero">
         <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
-            <h1>Excellence in Every Detail</h1>
-            <p>We believe in the power of simplicity. Our approach focuses on what matters most—delivering exceptional results through thoughtful execution.</p>
+            <h1>Excellence in {services[0]}</h1>
+            <p>We believe in the power of simplicity. Our approach focuses on what matters most—delivering exceptional {services[0].lower()} results for {city} businesses through thoughtful execution.</p>
             <a href="#contact" class="btn btn-primary">Discover More</a>
         </div>
     </section>
@@ -472,23 +682,41 @@ class TemplateEngineer:
     <!-- Minimal Services -->
     <section id="services" style="padding: 6rem 0; background: #fafafa;">
         <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
-            <h2 style="margin-bottom: 3rem; font-size: 2rem;">What We Do</h2>
-
+            <h2 style="margin-bottom: 3rem; font-size: 2rem;">Our Services</h2>
             <div style="space-y: 3rem;">
-                <div style="margin-bottom: 3rem;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2563eb;">01. Consultation</h3>
-                    <p style="font-size: 1.125rem; line-height: 1.7; color: #4b5563;">Deep understanding of your needs through comprehensive analysis and strategic planning.</p>
-                </div>
+{services_html}
+            </div>
+        </div>
+    </section>
 
-                <div style="margin-bottom: 3rem;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2563eb;">02. Implementation</h3>
-                    <p style="font-size: 1.125rem; line-height: 1.7; color: #4b5563;">Precise execution with continuous monitoring and adjustment for optimal results.</p>
-                </div>
+    <!-- Minimal Contact -->
+    <section id="contact" style="padding: 6rem 0; background: white;">
+        <div class="container" style="max-width: 600px; margin: 0 auto; padding: 0 1rem; text-align: center;">
+            <h2 style="margin-bottom: 2rem;">Contact {business_name}</h2>
+            <p style="margin-bottom: 3rem; font-size: 1.125rem; color: #6b7280;">Ready to start your project? We'd love to hear from you.</p>
+            <a href="tel:555-555-5555" class="btn btn-primary" style="margin-right: 1rem;">Call Now</a>
+            <a href="mailto:info@{business_name.lower().replace(' ', '')}.com" class="btn" style="background: transparent; border: 2px solid #2563eb; color: #2563eb;">Get Quote</a>
+        </div>
+    </section>"""
 
+    <!-- Minimal Services -->
+    <section id="services" style="padding: 6rem 0; background: #fafafa;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+            <h2 style="margin-bottom: 3rem; font-size: 2rem;">Our Services</h2>
+
+            <div style="space-y: 3rem;">"""
+
+        # Generate dynamic services for minimal layout
+        services_html = ""
+        for i, service in enumerate(services[:3]):  # Limit to 3 for minimal layout
+            description = self.generate_service_description(service, business_name)
+            services_html += f"""
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2563eb;">03. Optimization</h3>
-                    <p style="font-size: 1.125rem; line-height: 1.7; color: #4b5563;">Ongoing refinement to ensure sustained success and continuous improvement.</p>
-                </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2563eb;">{i+1:02d}. {service}</h3>
+                    <p style="font-size: 1.125rem; line-height: 1.7; color: #4b5563;">{description}</p>
+                </div>"""
+
+        return services_html + f"""
             </div>
         </div>
     </section>
@@ -502,15 +730,22 @@ class TemplateEngineer:
         </div>
     </section>"""
 
-    def generate_classic_centered_html(self):
-        """Traditional centered layout"""
-        return """    <!-- Classic Header -->
+    def generate_classic_centered_html(self, business_context):
+        """Traditional centered layout with business-specific content"""
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        city = location.get("city", "Local Area")
+        state = location.get("state", "State")
+
+        return f"""    <!-- Classic Header -->
     <header style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
             <nav style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="font-size: 1.5rem; font-weight: 700;">Your Business</div>
+                <div style="font-size: 1.5rem; font-weight: 700;">{business_name}</div>
                 <div>
                     <a href="#services" style="color: white; text-decoration: none; margin-left: 2rem;">Services</a>
+                    <a href="#about" style="color: white; text-decoration: none; margin-left: 2rem;">About</a>
                     <a href="#contact" style="color: white; text-decoration: none; margin-left: 2rem;">Contact</a>
                 </div>
             </nav>
@@ -520,8 +755,8 @@ class TemplateEngineer:
     <!-- Classic Hero -->
     <section class="hero">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-            <h1>Professional Service Solutions</h1>
-            <p>We provide exceptional service to help your business grow and succeed in today's competitive market.</p>
+            <h1>Welcome to {business_name}</h1>
+            <p>Serving {city}, {state} with professional {services[0].lower()} and exceptional customer service.</p>
             <a href="#contact" class="btn btn-primary">Get Started Today</a>
         </div>
     </section>
@@ -530,23 +765,23 @@ class TemplateEngineer:
     <section id="services" style="padding: 4rem 0; background: white;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
             <h2 style="text-align: center; margin-bottom: 1rem;">Our Services</h2>
-            <p style="text-align: center; color: #64748b; margin-bottom: 3rem;">Comprehensive solutions tailored to your needs</p>
+            <p style="text-align: center; color: #64748b; margin-bottom: 3rem;">Professional solutions tailored to your needs in {city}, {state}</p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease;">
-                    <h3 style="color: #2563eb; margin-bottom: 1rem;">Consultation</h3>
-                    <p>Expert advice and strategic planning to help you make informed decisions for your business growth.</p>
-                </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">"""
 
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease;">
-                    <h3 style="color: #2563eb; margin-bottom: 1rem;">Implementation</h3>
-                    <p>Professional execution of solutions with attention to detail and commitment to excellence.</p>
-                </div>
+        # Generate service cards based on actual services with intelligent descriptions
+        services_html = ""
+        for i, service in enumerate(services[:3]):  # Limit to 3 services for layout
+            # Generate intelligent description based on service name
+            description = self.generate_service_description(service, business_name)
 
+            services_html += f"""
                 <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; transition: transform 0.3s ease;">
-                    <h3 style="color: #2563eb; margin-bottom: 1rem;">Support</h3>
-                    <p>Ongoing assistance and maintenance to ensure your continued success and satisfaction.</p>
-                </div>
+                    <h3 style="color: #2563eb; margin-bottom: 1rem;">{service}</h3>
+                    <p>{description}</p>
+                </div>"""
+
+        return services_html + f"""
             </div>
         </div>
     </section>
@@ -554,21 +789,48 @@ class TemplateEngineer:
     <!-- Classic Contact -->
     <section id="contact" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 4rem 0; text-align: center;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-            <h2 style="color: white; margin-bottom: 1rem;">Ready to Get Started?</h2>
-            <p style="margin-bottom: 2rem; opacity: 0.9;">Contact us today for a free consultation and discover how we can help your business succeed.</p>
-            <a href="tel:555-555-5555" class="btn" style="background: white; color: #2563eb; margin-right: 1rem; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Call (555) 555-5555</a>
-            <a href="mailto:info@yourbusiness.com" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Send Email</a>
+            <h2 style="color: white; margin-bottom: 1rem;">Contact {business_name}</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">Ready to get started? Contact us today for a free consultation and discover how we can help your business succeed.</p>
+
+            <?php if ($success_message): ?>
+                <div style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <?php echo htmlspecialchars($success_message); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($form_errors)): ?>
+                <div style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <?php foreach ($form_errors as $error): ?>
+                        <p><?php echo htmlspecialchars($error); ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <form method="POST" action="" style="max-width: 600px; margin: 0 auto 2rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <input type="text" name="name" placeholder="Your Name" value="<?php echo htmlspecialchars($_POST['name'] ?? ''); ?>" required style="padding: 1rem; border: none; border-radius: 8px; font-size: 1rem;">
+                    <input type="email" name="email" placeholder="Your Email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required style="padding: 1rem; border: none; border-radius: 8px; font-size: 1rem;">
+                </div>
+                <input type="tel" name="phone" placeholder="Your Phone (Optional)" value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>" style="width: 100%; padding: 1rem; border: none; border-radius: 8px; font-size: 1rem; margin-bottom: 1rem;">
+                <textarea name="message" placeholder="Tell us about your project..." required style="width: 100%; padding: 1rem; border: none; border-radius: 8px; font-size: 1rem; min-height: 120px; margin-bottom: 1rem; resize: vertical;"><?php echo htmlspecialchars($_POST['message'] ?? ''); ?></textarea>
+                <button type="submit" style="background: white; color: #2563eb; padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s;">Send Message</button>
+            </form>
+
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="tel:555-555-5555" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Call (555) 555-5555</a>
+                <a href="mailto:info@{business_name.lower().replace(' ', '')}.com" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Send Email</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer style="background: #1f2937; color: white; padding: 2rem 0; text-align: center;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-            <p>&copy; <?php echo date('Y'); ?> Your Business. All rights reserved.</p>
+            <p>&copy; <?php echo date('Y'); ?> {business_name}. Serving {city}, {state}. All rights reserved.</p>
         </div>
     </footer>"""
 
-    def generate_overlay_hero_html(self):
+    def generate_overlay_hero_html(self, business_context):
         """Full-screen background with overlay text"""
         return """    <!-- Overlay Hero -->
     <section class="hero" style="
@@ -1071,3 +1333,442 @@ class TemplateEngineer:
 
         print(f"✅ PHP template written to {output_path}")
         return True
+
+    def generate_service_description(self, service_name, business_name):
+        """Generate intelligent service descriptions based on service name and business context"""
+        service_lower = service_name.lower()
+
+        # Landscaping and outdoor services
+        if any(keyword in service_lower for keyword in ['landscape', 'garden', 'outdoor', 'lawn', 'yard']):
+            if 'design' in service_lower:
+                return f"Transform your outdoor space with our expert landscape design services. We create beautiful, functional landscapes tailored to your property and lifestyle."
+            elif 'maintenance' in service_lower or 'planning' in service_lower:
+                return f"Keep your landscape looking its best year-round with our comprehensive maintenance and planning services."
+            elif 'installation' in service_lower:
+                return f"Professional landscape installation services bringing your outdoor vision to life with quality materials and expert craftsmanship."
+            else:
+                return f"Professional landscaping services designed to enhance your property's beauty and value."
+
+        # Hardscaping and construction
+        elif any(keyword in service_lower for keyword in ['hardscape', 'hardscaping', 'stone', 'patio', 'walkway', 'retaining']):
+            return f"Expert hardscaping services including patios, walkways, retaining walls, and stone features that add structure and beauty to your landscape."
+
+        # IT and technology services
+        elif any(keyword in service_lower for keyword in ['it', 'tech', 'computer', 'network', 'cloud', 'cyber']):
+            if 'consulting' in service_lower:
+                return f"Strategic IT consulting services to help your business leverage technology for growth, efficiency, and competitive advantage."
+            elif 'network' in service_lower:
+                return f"Professional network setup and maintenance services ensuring reliable, secure connectivity for your business operations."
+            elif 'cloud' in service_lower:
+                return f"Seamless cloud migration services helping you modernize your infrastructure while reducing costs and improving scalability."
+            else:
+                return f"Comprehensive IT services designed to keep your technology running smoothly and securely."
+
+        # Cleaning and maintenance services
+        elif any(keyword in service_lower for keyword in ['clean', 'maintenance', 'seasonal']):
+            if 'seasonal' in service_lower:
+                return f"Comprehensive seasonal cleanup services to prepare your property for each season and maintain its pristine appearance."
+            else:
+                return f"Professional cleaning and maintenance services ensuring your space remains spotless and well-maintained."
+
+        # Installation services
+        elif 'installation' in service_lower:
+            if 'irrigation' in service_lower:
+                return f"Expert irrigation system installation and setup ensuring your landscape receives optimal water coverage for healthy growth."
+            else:
+                return f"Professional installation services with attention to detail and commitment to quality workmanship."
+
+        # Consultation services
+        elif any(keyword in service_lower for keyword in ['consult', 'planning', 'assessment']):
+            if 'native plant' in service_lower:
+                return f"Expert native plant consultation helping you choose sustainable, locally-adapted plants that thrive in your environment."
+            else:
+                return f"Professional consultation services providing expert guidance and strategic planning for your project success."
+
+        # Design services
+        elif 'design' in service_lower:
+            return f"Creative design services that bring your vision to life with innovative solutions and attention to aesthetic detail."
+
+        # Development services
+        elif 'development' in service_lower:
+            return f"Custom development services using the latest technologies and best practices to deliver robust, scalable solutions."
+
+        # Support services
+        elif 'support' in service_lower:
+            return f"Reliable support services ensuring your continued success with responsive assistance when you need it most."
+
+        # Generic fallback with business context
+        else:
+            return f"Professional {service_name.lower()} services delivered with expertise, quality, and dedication to your satisfaction."
+
+    def generate_asymmetric_grid_html(self, business_context):
+        """Asymmetric grid layout with dynamic positioning"""
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        city = location.get("city", "Local Area")
+        state = location.get("state", "State")
+
+        # Generate floating service cards
+        services_html = ""
+        for i, service in enumerate(services):
+            offset = (i % 2) * 20 - 10  # Alternate positioning
+            rotation = (i - 1) * 2  # Slight rotation
+            description = self.generate_service_description(service, business_name)
+            services_html += f"""
+                <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transform: translateY({offset}px) rotate({rotation}deg); transition: all 0.3s ease;">
+                    <h3 style="color: #1f2937; margin-bottom: 1rem; font-size: 1.5rem;">{service}</h3>
+                    <p style="color: #64748b; line-height: 1.6;">{description}</p>
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
+                        <a href="#contact" style="color: #3b82f6; text-decoration: none; font-weight: 600;">Learn More →</a>
+                    </div>
+                </div>"""
+
+        return f"""    <!-- Asymmetric Grid Hero -->
+    <section class="hero">
+        <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+            <div class="hero-grid">
+                <h1>{business_name}</h1>
+                <p>Professional {services[0].lower()} solutions designed for businesses in {city}, {state}. We combine creativity with technical expertise to deliver exceptional results.</p>
+                <div class="hero-visual"></div>
+                <div style="grid-column: 2 / 4; display: flex; gap: 1rem; align-items: center;">
+                    <a href="#services" class="btn btn-primary" style="padding: 1rem 2rem; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Explore Services</a>
+                    <a href="#contact" class="btn" style="padding: 1rem 2rem; border: 2px solid #3b82f6; color: #3b82f6; text-decoration: none; border-radius: 8px; font-weight: 600;">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Services Cards -->
+    <section id="services" style="padding: 8rem 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); position: relative;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 4rem; color: #1f2937;">Our Services</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+{services_html}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; padding: 6rem 0; text-align: center;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Contact {business_name}</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 3rem; opacity: 0.9;">Ready to get started? Contact us today to discuss your project needs.</p>
+            <a href="tel:555-555-5555" class="btn" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; padding: 1.25rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem;">Get Started</a>
+        </div>
+    </section>"""
+
+    def generate_diagonal_split_html(self, business_context):
+        """Diagonal split layout with angled sections"""
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        city = location.get("city", "Local Area")
+
+        return f"""    <!-- Diagonal Split Hero -->
+    <section class="hero">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="hero-content">
+                <div>
+                    <h1>{business_name}</h1>
+                    <p>Cutting-edge {services[0].lower()} solutions that push boundaries and deliver exceptional results for businesses in {city}.</p>
+                    <div style="margin-top: 3rem;">
+                        <a href="#contact" class="btn btn-primary" style="background: white; color: #1f2937; padding: 1.25rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin-right: 1rem;">Get Started</a>
+                        <a href="#services" style="color: white; text-decoration: none; font-weight: 600; border-bottom: 2px solid white;">View Services →</a>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-end;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; backdrop-filter: blur(10px);">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Expert Team</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Professional specialists</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; backdrop-filter: blur(10px);">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Proven Results</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Successful projects delivered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Angled Services Section -->
+    <section style="padding: 6rem 0; background: white; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, transparent 0%, #f8fafc 50%, transparent 100%); transform: skewY(-3deg); transform-origin: top left;"></div>
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 4rem; color: #1f2937;">Our Services</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">"""
+
+        # Generate angled service cards
+        services_html = ""
+        for i, service in enumerate(services):
+            description = self.generate_service_description(service, business_name)
+            services_html += f"""
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: rotate({(i-1)*1}deg); transition: all 0.3s ease;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🌿</div>
+                    <h3 style="color: #1f2937; margin-bottom: 1rem; font-size: 1.5rem;">{service}</h3>
+                    <p style="color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">{description}</p>
+                    <a href="#contact" style="color: #3b82f6; text-decoration: none; font-weight: 600;">Learn More →</a>
+                </div>"""
+
+        return f"""    <!-- Diagonal Split Hero -->
+    <section class="hero">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="hero-content">
+                <div>
+                    <h1>{business_name}</h1>
+                    <p>Professional {services[0].lower()} solutions that deliver exceptional results for businesses in {city}.</p>
+                    <div style="margin-top: 3rem;">
+                        <a href="#contact" class="btn btn-primary" style="background: white; color: #1f2937; padding: 1.25rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin-right: 1rem;">Get Started</a>
+                        <a href="#services" style="color: white; text-decoration: none; font-weight: 600; border-bottom: 2px solid white;">View Services →</a>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-end;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; backdrop-filter: blur(10px);">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Expert Team</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Professional specialists</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; backdrop-filter: blur(10px);">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Proven Results</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Successful projects delivered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Angled Services Section -->
+    <section id="services" style="padding: 6rem 0; background: white; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, transparent 0%, #f8fafc 50%, transparent 100%); transform: skewY(-3deg); transform-origin: top left;"></div>
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 4rem; color: #1f2937;">Our Services</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+{services_html}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; padding: 6rem 0; text-align: center;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Contact {business_name}</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 3rem; opacity: 0.9;">Ready to transform your landscape? Contact us today to discuss your project.</p>
+            <a href="tel:555-555-5555" class="btn btn-primary" style="margin-right: 1rem;">Call Now</a>
+            <a href="mailto:info@{business_name.lower().replace(' ', '')}.com" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">Send Email</a>
+        </div>
+    </section>"""
+
+    def generate_layered_parallax_html(self, business_context):
+        """Layered parallax layout with depth effects"""
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        city = location.get("city", "Local Area")
+
+        return f"""    <!-- Layered Parallax Hero -->
+    <section class="hero">
+        <div class="hero-layer hero-layer-1"></div>
+        <div class="hero-layer hero-layer-2"></div>
+        <div class="hero-content">
+            <h1>{business_name}</h1>
+            <p>Experience the future of {services[0].lower()} with our innovative solutions designed for {city} businesses.</p>
+            <div style="margin-top: 3rem;">
+                <a href="#contact" class="btn btn-primary" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: 1.25rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; backdrop-filter: blur(10px);">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depth Services -->
+    <section style="padding: 8rem 0; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 800\"><defs><pattern id=\"grid\" width=\"40\" height=\"40\" patternUnits=\"userSpaceOnUse\"><path d=\"M 40 0 L 0 0 0 40\" fill=\"none\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/></pattern></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23grid)\"/></svg>'); opacity: 0.3;"></div>
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 4rem; color: white;">Our Expertise</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; perspective: 1000px;">"""
+
+        # Generate 3D service cards
+        services_html = ""
+        for i, service in enumerate(services):
+            depth = (i % 3) * 10 + 10  # Varying depth
+            description = self.generate_service_description(service, business_name)
+            services_html += f"""
+                <div style="background: rgba(255,255,255,0.1); padding: 3rem; border-radius: 20px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); transform: translateZ({depth}px) rotateY({(i-1)*5}deg); transition: all 0.5s ease;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); border-radius: 50%; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">🌿</div>
+                    <h3 style="color: white; margin-bottom: 1rem; font-size: 1.5rem;">{service}</h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 2rem;">{description}</p>
+                    <a href="#contact" style="color: #60a5fa; text-decoration: none; font-weight: 600;">Explore →</a>
+                </div>"""
+
+        return f"""    <!-- Layered Parallax Hero -->
+    <section class="hero">
+        <div class="hero-layer hero-layer-1"></div>
+        <div class="hero-layer hero-layer-2"></div>
+        <div class="hero-content">
+            <h1>{business_name}</h1>
+            <p>Experience the future of {services[0].lower()} with our innovative solutions designed for {city} businesses.</p>
+            <div style="margin-top: 3rem;">
+                <a href="#contact" class="btn btn-primary" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: 1.25rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; backdrop-filter: blur(10px);">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depth Services -->
+    <section id="services" style="padding: 8rem 0; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 800\"><defs><pattern id=\"grid\" width=\"40\" height=\"40\" patternUnits=\"userSpaceOnUse\"><path d=\"M 40 0 L 0 0 0 40\" fill=\"none\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/></pattern></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23grid)\"/></svg>'); opacity: 0.3;"></div>
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 4rem; color: white;">Our Expertise</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; perspective: 1000px;">
+{services_html}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 6rem 0; text-align: center;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Contact {business_name}</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 3rem; opacity: 0.9;">Ready to transform your landscape? Contact us today to discuss your project.</p>
+            <a href="tel:555-555-5555" class="btn btn-primary" style="margin-right: 1rem;">Call Now</a>
+            <a href="mailto:info@{business_name.lower().replace(' ', '')}.com" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">Send Email</a>
+        </div>
+    </section>"""
+
+    def generate_card_mosaic_html(self, business_context):
+        """Interactive card mosaic layout"""
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        city = location.get("city", "Local Area")
+
+        # Generate mosaic service cards with different sizes
+        services_html = ""
+        grid_positions = [
+            "grid-column: 7 / 10; grid-row: 1 / 3;",
+            "grid-column: 10 / 13; grid-row: 1 / 4;",
+            "grid-column: 1 / 4; grid-row: 4 / 7;",
+            "grid-column: 4 / 8; grid-row: 4 / 6;",
+            "grid-column: 8 / 13; grid-row: 4 / 8;",
+            "grid-column: 1 / 6; grid-row: 7 / 9;"
+        ]
+
+        colors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#06b6d4"]
+
+        for i, service in enumerate(services[:6]):  # Limit to 6 for layout
+            position = grid_positions[i % len(grid_positions)]
+            color = colors[i % len(colors)]
+            description = self.generate_service_description(service, business_name)
+            services_html += f"""
+                <div style="{position} background: {color}; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; color: white; transition: all 0.3s ease; cursor: pointer;">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">{service}</h3>
+                    <p style="opacity: 0.9; font-size: 0.95rem;">{description[:60]}...</p>
+                </div>"""
+
+        # Add CTA card
+        services_html += f"""
+                <div style="grid-column: 6 / 13; grid-row: 6 / 9; background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center;">
+                    <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Ready to Start?</h3>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">Let's discuss your project</p>
+                    <a href="#contact" style="background: white; color: #ea580c; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600;">Get Quote</a>
+                </div>"""
+
+        return f"""    <!-- Card Mosaic Hero -->
+    <section style="padding: 4rem 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); min-height: 100vh; display: flex; align-items: center;">
+        <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+            <div style="display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(8, 100px); gap: 1rem; height: 80vh;">
+                <!-- Main title card -->
+                <div style="grid-column: 1 / 7; grid-row: 1 / 4; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border-radius: 24px; padding: 3rem; display: flex; flex-direction: column; justify-content: center; color: white;">
+                    <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1;">{business_name}</h1>
+                    <p style="font-size: 1.25rem; opacity: 0.9;">Professional landscaping solutions for {city} businesses</p>
+                </div>
+
+                <!-- Service cards -->
+{services_html}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; padding: 6rem 0; text-align: center;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Contact {business_name}</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 3rem; opacity: 0.9;">Ready to transform your landscape? Contact us today to discuss your project.</p>
+            <a href="tel:555-555-5555" class="btn btn-primary" style="margin-right: 1rem;">Call Now</a>
+            <a href="mailto:info@{business_name.lower().replace(' ', '')}.com" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">Send Email</a>
+        </div>
+    </section>"""
+
+    def generate_timeline_flow_html(self, business_context):
+        """Timeline flow layout with story progression"""
+        business_name = business_context.get("name", "Professional Service")
+        services = business_context.get("services", ["Professional Services"])
+        location = business_context.get("location", {})
+        city = location.get("city", "Local Area")
+
+        return f"""    <!-- Timeline Flow Hero -->
+    <section style="padding: 6rem 0; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; position: relative;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h1 style="font-size: 4rem; font-weight: 300; margin-bottom: 1rem;">{business_name}</h1>
+                <p style="font-size: 1.5rem; opacity: 0.8;">Your journey to success starts here in {city}</p>
+            </div>
+
+            <!-- Timeline -->
+            <div style="position: relative; max-width: 800px; margin: 0 auto;">
+                <!-- Timeline line -->
+                <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #3b82f6, #10b981, #f59e0b); transform: translateX(-50%);"></div>"""
+
+        # Generate timeline steps
+        timeline_html = ""
+        steps = ["Discovery", "Planning", "Implementation", "Success"]
+
+        for i, (step, service) in enumerate(zip(steps, services + ["Results"])):
+            is_left = i % 2 == 0
+            margin_side = "margin-right: 50%;" if is_left else "margin-left: 50%;"
+            text_align = "text-align: right;" if is_left else "text-align: left;"
+
+            # Use intelligent service descriptions
+            if i < len(services):
+                description = self.generate_service_description(service, business_name)
+                service_text = f"Professional {service.lower()}"
+            else:
+                description = "Delivered on time with measurable success"
+                service_text = "Exceptional Results"
+
+            timeline_html += f"""
+                <div style="position: relative; margin-bottom: 4rem;">
+                    <div style="{margin_side} {text_align} padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px);">
+                        <div style="position: absolute; top: 50%; {'right: -20px;' if is_left else 'left: -20px;'} width: 40px; height: 40px; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; transform: translateY(-50%);">{i+1}</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #60a5fa;">{step}</h3>
+                        <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">{service if i < len(services) else 'Exceptional Results'}</h4>
+                        <p style="opacity: 0.8;">{description[:80]}...</p>
+                    </div>
+                </div>"""
+
+        return f"""    <!-- Timeline Flow Hero -->
+    <section style="padding: 6rem 0; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; position: relative;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h1 style="font-size: 4rem; font-weight: 300; margin-bottom: 1rem;">{business_name}</h1>
+                <p style="font-size: 1.5rem; opacity: 0.8;">Your journey to success starts here in {city}</p>
+            </div>
+
+            <!-- Timeline -->
+            <div style="position: relative; max-width: 800px; margin: 0 auto;">
+                <!-- Timeline line -->
+                <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #3b82f6, #10b981, #f59e0b); transform: translateX(-50%);"></div>
+{timeline_html}
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#contact" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; padding: 1.25rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.125rem;">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 6rem 0; text-align: center;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Contact {business_name}</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 3rem; opacity: 0.9;">Ready to get started? Contact us today to discuss your project.</p>
+            <a href="tel:555-555-5555" class="btn btn-primary" style="margin-right: 1rem;">Call Now</a>
+            <a href="mailto:info@{business_name.lower().replace(' ', '')}.com" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">Send Email</a>
+        </div>
+    </section>"""

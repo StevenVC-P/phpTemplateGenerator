@@ -1,4 +1,14 @@
 # PHP Template Generator - Git Ignore File
+#
+# This file ensures that business-specific content, generated templates,
+# and output files are not committed to the repository while preserving
+# the core codebase and directory structure.
+#
+# Key exclusions:
+# - input/ : Business-specific input files (contains sensitive business data)
+# - output/ : Generated template files and analysis results
+# - themes/ : Generated WordPress theme packages
+# - template_generations/ : All generated template variations and specs
 
 # Python
 __pycache__/
@@ -59,6 +69,45 @@ htmlcov/
 .env.test
 .env.production
 
+# INPUT DIRECTORIES - Business-specific input files should not be in repo
+input/
+!input/.gitkeep
+!input/example-request.md
+!input/manual-run.md
+
+# OUTPUT DIRECTORIES - Generated content should not be in repo
+output/
+!output/.gitkeep
+
+# THEMES DIRECTORIES - Generated WordPress themes should not be in repo
+themes/
+!themes/.gitkeep
+
+# WORDPRESS THEME PACKAGES - Generated WordPress theme packages
+wordpress_theme_package/
+wordpress_theme_packages/
+*.zip
+
+# DEMO FILES - Generated demo pages and content
+demo_*.html
+demo_*/
+*.demo.html
+
+# DOCUMENTATION - Generated or temporary docs
+docs/
+!docs/README.md
+WORDPRESS_INSTALLATION_GUIDE.md
+
+# UTILITY SCRIPTS AND FIXES
+bluehost-mobile-menu-fix.js
+mailpoet-functions.php
+test_enhanced_wp_assembler.py
+
+# ENHANCED TEMPLATE GENERATIONS - All enhanced theme variations
+template_generations/component_enhanced_theme_*/
+template_generations/seo_enhanced_theme_*/
+template_generations/wordpress_enhanced_theme_*/
+
 # Generated templates (keep examples, ignore generated)
 templates/template_*.php
 !templates/example_*.php
@@ -92,9 +141,6 @@ template_generations/template_*/
 !template_generations/.gitkeep
 
 # Visual analysis outputs
-output/template_*.json
-output/visual_analysis_*.json
-output/screenshot_*.png
 screenshots/
 *.png
 *.jpg
@@ -165,8 +211,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Keep important directories but ignore their contents
-!input/.gitkeep
-!output/.gitkeep
 !templates/.gitkeep
 !reviews/.gitkeep
 !specs/.gitkeep
@@ -176,3 +220,29 @@ yarn-error.log*
 !utils/.gitkeep
 !agents/.gitkeep
 !mcp/.gitkeep
+
+# NEW AGENT DIRECTORIES - Enhanced WordPress agents
+agents/component_library/
+agents/seo_optimizer/
+agents/wordpress_theme_assembler/
+
+# TEMPLATE FILES - Generated template files
+templates/multi_page_request_template.md
+
+# UTILITY MODULES - Generated utility files
+utils/agent_result.py
+
+# Business-specific files that should not be in repo
+*.business.md
+*-request.md
+!example-request.md
+!manual-run.md
+
+# Test files that contain business data
+test-business-request.md
+northern-roots-test.md
+*-test.md
+DeansPCRepair.md
+DeansPCRepair_MultiPage.md
+northern-roots.md
+test-restaurant.md

@@ -1,8 +1,8 @@
 {
   "design_variation_generator": {
     "status": "success",
-    "timestamp": "2025-06-24T15:56:01.958245",
-    "output_file": "template_generations\\template_79ca21dd\\design_variations\\design_variation_variation_20250624155601.json"
+    "timestamp": "2025-07-23T17:03:25.647185",
+    "output_file": "template_generations/template_46e2201d/design_variations/design_variation_variation_20250723170325_646816_3291.json"
   },
   "pipeline_d7ac0425": {
     "request_file": "input/example-request.md",
@@ -12,8 +12,8 @@
   },
   "request_interpreter": {
     "status": "success",
-    "timestamp": "2025-06-24T15:56:01.955248",
-    "output_file": "template_generations\\template_79ca21dd\\specs\\template_spec.json"
+    "timestamp": "2025-07-23T17:03:25.641229",
+    "output_file": "template_generations/template_46e2201d/specs/template_spec.json"
   },
   "pipeline_ff24312a": {
     "request_file": "input/example-request.md",
@@ -28,18 +28,18 @@
   },
   "prompt_designer": {
     "status": "success",
-    "timestamp": "2025-06-24T15:56:01.956967",
-    "output_file": "template_generations\\template_79ca21dd\\prompts\\prompt_79ca21dd.json"
+    "timestamp": "2025-07-23T17:03:25.643840",
+    "output_file": "template_generations/template_46e2201d/prompts/prompt_46e2201d.json"
   },
   "template_engineer": {
     "status": "success",
-    "timestamp": "2025-06-24T15:56:01.973979",
-    "output_file": "template_generations\\template_79ca21dd\\templates\\template_79ca21dd.php"
+    "timestamp": "2025-07-23T17:00:37.775520",
+    "output_file": "template_generations/template_839808bf/templates/template_839808bf.php"
   },
   "cta_optimizer": {
     "status": "success",
-    "timestamp": "2025-06-24T15:56:01.994460",
-    "output_file": "template_generations\\template_79ca21dd\\templates\\template_79ca21dd.cta.php"
+    "timestamp": "2025-07-23T17:00:37.777636",
+    "output_file": "template_generations/template_839808bf/templates/template_839808bf.cta.php"
   },
   "code_reviewer": {
     "status": "success",
@@ -348,5 +348,1253 @@
     },
     "template_dir": "template_generations/template_79ca21dd",
     "end_time": "2025-06-24T15:56:02.022431"
+  },
+  "pipeline_f68ff121": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T15:56:40.568336",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_f68ff121/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T15:56:40.571838"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_f68ff121/prompts/prompt_f68ff121.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T15:56:40.572921"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_f68ff121/design_variations/design_variation_variation_20250723155640.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T15:56:40.573849"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_f68ff121/templates/template_f68ff121.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T15:56:40.575491"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_f68ff121/templates/template_f68ff121.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T15:56:40.576416"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T15:56:40.576424"
+      }
+    },
+    "template_dir": "template_generations/template_f68ff121",
+    "end_time": "2025-07-23T15:56:40.576470"
+  },
+  "pipeline_a973064a": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:22:41.453726",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_a973064a/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:22:41.457356"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_a973064a/prompts/prompt_a973064a.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:22:41.458702"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_a973064a/design_variations/design_variation_variation_20250723162241.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:22:41.460148"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_a973064a/templates/template_a973064a.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:22:41.462315"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_a973064a/templates/template_a973064a.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:22:41.463716"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:22:41.463725"
+      }
+    },
+    "template_dir": "template_generations/template_a973064a",
+    "end_time": "2025-07-23T16:22:41.463838"
+  },
+  "pipeline_b2f675e2": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:23:00.901933",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_b2f675e2/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:00.905717"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_b2f675e2/prompts/prompt_b2f675e2.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:00.907137"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_b2f675e2/design_variations/design_variation_variation_20250723162300.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:00.908640"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_b2f675e2/templates/template_b2f675e2.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:00.910919"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_b2f675e2/templates/template_b2f675e2.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:00.912287"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:23:00.912295"
+      }
+    },
+    "template_dir": "template_generations/template_b2f675e2",
+    "end_time": "2025-07-23T16:23:00.912393"
+  },
+  "pipeline_f68fadf0": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:23:07.942306",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_f68fadf0/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:07.946251"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_f68fadf0/prompts/prompt_f68fadf0.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:07.947148"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_f68fadf0/design_variations/design_variation_variation_20250723162307.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:07.948530"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_f68fadf0/templates/template_f68fadf0.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:07.950789"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_f68fadf0/templates/template_f68fadf0.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:07.952164"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:23:07.952173"
+      }
+    },
+    "template_dir": "template_generations/template_f68fadf0",
+    "end_time": "2025-07-23T16:23:07.952285"
+  },
+  "pipeline_34f23bb8": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:23:51.039118",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_34f23bb8/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.042933"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_34f23bb8/prompts/prompt_34f23bb8.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.044131"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_34f23bb8/design_variations/design_variation_variation_20250723162351.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.045383"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_34f23bb8/templates/template_34f23bb8.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.047255"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_34f23bb8/templates/template_34f23bb8.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.048431"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:23:51.048440"
+      }
+    },
+    "template_dir": "template_generations/template_34f23bb8",
+    "end_time": "2025-07-23T16:23:51.048489"
+  },
+  "pipeline_4f0a1167": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:23:51.120131",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_4f0a1167/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.123970"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_4f0a1167/prompts/prompt_4f0a1167.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.125145"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_4f0a1167/design_variations/design_variation_variation_20250723162351.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.126414"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_4f0a1167/templates/template_4f0a1167.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.128284"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_4f0a1167/templates/template_4f0a1167.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.129419"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:23:51.129428"
+      }
+    },
+    "template_dir": "template_generations/template_4f0a1167",
+    "end_time": "2025-07-23T16:23:51.129474"
+  },
+  "pipeline_cff331d5": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:23:51.199040",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_cff331d5/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.203581"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_cff331d5/prompts/prompt_cff331d5.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.205017"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_cff331d5/design_variations/design_variation_variation_20250723162351.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.206360"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_cff331d5/templates/template_cff331d5.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.208280"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_cff331d5/templates/template_cff331d5.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:23:51.209497"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:23:51.209508"
+      }
+    },
+    "template_dir": "template_generations/template_cff331d5",
+    "end_time": "2025-07-23T16:23:51.209572"
+  },
+  "pipeline_12ec74f2": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:39:21.865353",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_12ec74f2/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.869350"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_12ec74f2/prompts/prompt_12ec74f2.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.870765"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_12ec74f2/design_variations/design_variation_variation_20250723163921_871072_6740.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.872400"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_12ec74f2/templates/template_12ec74f2.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.874478"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_12ec74f2/templates/template_12ec74f2.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.875785"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:39:21.875794"
+      }
+    },
+    "template_dir": "template_generations/template_12ec74f2",
+    "end_time": "2025-07-23T16:39:21.875844"
+  },
+  "pipeline_145500ed": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:39:21.949118",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_145500ed/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.953000"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_145500ed/prompts/prompt_145500ed.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.954325"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_145500ed/design_variations/design_variation_variation_20250723163921_954506_9507.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.955845"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_145500ed/templates/template_145500ed.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.957970"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_145500ed/templates/template_145500ed.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:21.959380"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:39:21.959389"
+      }
+    },
+    "template_dir": "template_generations/template_145500ed",
+    "end_time": "2025-07-23T16:39:21.959440"
+  },
+  "pipeline_d70db523": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:39:22.031805",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_d70db523/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.035734"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_d70db523/prompts/prompt_d70db523.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.037120"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_d70db523/design_variations/design_variation_variation_20250723163922_37343_2700.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.038706"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_d70db523/templates/template_d70db523.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.041006"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_d70db523/templates/template_d70db523.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.042340"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:39:22.042349"
+      }
+    },
+    "template_dir": "template_generations/template_d70db523",
+    "end_time": "2025-07-23T16:39:22.042393"
+  },
+  "pipeline_07c501d0": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:39:22.112739",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_07c501d0/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.116823"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_07c501d0/prompts/prompt_07c501d0.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.118401"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_07c501d0/design_variations/design_variation_variation_20250723163922_118572_2704.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.120039"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_07c501d0/templates/template_07c501d0.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.122139"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_07c501d0/templates/template_07c501d0.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.123461"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:39:22.123469"
+      }
+    },
+    "template_dir": "template_generations/template_07c501d0",
+    "end_time": "2025-07-23T16:39:22.123517"
+  },
+  "pipeline_65167485": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:39:22.193531",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_65167485/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.197533"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_65167485/prompts/prompt_65167485.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.199070"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_65167485/design_variations/design_variation_variation_20250723163922_199243_1704.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.200669"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_65167485/templates/template_65167485.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.203014"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_65167485/templates/template_65167485.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:39:22.204427"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:39:22.204435"
+      }
+    },
+    "template_dir": "template_generations/template_65167485",
+    "end_time": "2025-07-23T16:39:22.204483"
+  },
+  "pipeline_50b7d8e1": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:40:02.949250",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_50b7d8e1/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:02.954305"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_50b7d8e1/prompts/prompt_50b7d8e1.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:02.956261"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_50b7d8e1/design_variations/design_variation_variation_20250723164002_956639_4792.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:02.958255"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_50b7d8e1/templates/template_50b7d8e1.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:02.960712"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_50b7d8e1/templates/template_50b7d8e1.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:02.962476"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:02.962484"
+      }
+    },
+    "template_dir": "template_generations/template_50b7d8e1",
+    "end_time": "2025-07-23T16:40:02.962534"
+  },
+  "pipeline_466e0ff8": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:40:03.035753",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_466e0ff8/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.040066"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_466e0ff8/prompts/prompt_466e0ff8.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.041756"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_466e0ff8/design_variations/design_variation_variation_20250723164003_41995_5959.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.043490"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_466e0ff8/templates/template_466e0ff8.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.046064"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_466e0ff8/templates/template_466e0ff8.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.047840"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:03.047849"
+      }
+    },
+    "template_dir": "template_generations/template_466e0ff8",
+    "end_time": "2025-07-23T16:40:03.047925"
+  },
+  "pipeline_ace3a7c2": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:40:03.121195",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_ace3a7c2/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.125637"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_ace3a7c2/prompts/prompt_ace3a7c2.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.127630"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_ace3a7c2/design_variations/design_variation_variation_20250723164003_127977_1807.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.129638"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_ace3a7c2/templates/template_ace3a7c2.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.132224"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_ace3a7c2/templates/template_ace3a7c2.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.134094"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:03.134106"
+      }
+    },
+    "template_dir": "template_generations/template_ace3a7c2",
+    "end_time": "2025-07-23T16:40:03.134171"
+  },
+  "pipeline_223caabf": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:40:03.206736",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_223caabf/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.211045"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_223caabf/prompts/prompt_223caabf.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.212921"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_223caabf/design_variations/design_variation_variation_20250723164003_213282_7558.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.215020"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_223caabf/templates/template_223caabf.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.217653"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_223caabf/templates/template_223caabf.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.219415"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:03.219423"
+      }
+    },
+    "template_dir": "template_generations/template_223caabf",
+    "end_time": "2025-07-23T16:40:03.219466"
+  },
+  "pipeline_ec75ae25": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:40:03.293196",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_ec75ae25/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.297611"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_ec75ae25/prompts/prompt_ec75ae25.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.299651"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_ec75ae25/design_variations/design_variation_variation_20250723164003_299890_9824.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.301477"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_ec75ae25/templates/template_ec75ae25.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.304000"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_ec75ae25/templates/template_ec75ae25.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.305838"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:03.305846"
+      }
+    },
+    "template_dir": "template_generations/template_ec75ae25",
+    "end_time": "2025-07-23T16:40:03.305942"
+  },
+  "pipeline_ca029711": {
+    "request_file": "input/test-business-request.md",
+    "start_time": "2025-07-23T16:40:03.380519",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_ca029711/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.385068"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_ca029711/prompts/prompt_ca029711.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.387150"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_ca029711/design_variations/design_variation_variation_20250723164003_387338_2472.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.389194"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_ca029711/templates/template_ca029711.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.391849"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_ca029711/templates/template_ca029711.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:03.393615"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:03.393624"
+      }
+    },
+    "template_dir": "template_generations/template_ca029711",
+    "end_time": "2025-07-23T16:40:03.393675"
+  },
+  "pipeline_77943d1d": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T16:40:21.406592",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_77943d1d/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.411018"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_77943d1d/prompts/prompt_77943d1d.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.413141"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_77943d1d/design_variations/design_variation_variation_20250723164021_413531_1723.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.415295"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_77943d1d/templates/template_77943d1d.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.417990"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_77943d1d/templates/template_77943d1d.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.420063"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:21.420072"
+      }
+    },
+    "template_dir": "template_generations/template_77943d1d",
+    "end_time": "2025-07-23T16:40:21.420123"
+  },
+  "pipeline_1fc6689b": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T16:40:21.492734",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_1fc6689b/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.497173"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_1fc6689b/prompts/prompt_1fc6689b.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.499109"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_1fc6689b/design_variations/design_variation_variation_20250723164021_499361_1106.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.501200"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_1fc6689b/templates/template_1fc6689b.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.503714"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_1fc6689b/templates/template_1fc6689b.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.505487"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:21.505496"
+      }
+    },
+    "template_dir": "template_generations/template_1fc6689b",
+    "end_time": "2025-07-23T16:40:21.505545"
+  },
+  "pipeline_0366c1e4": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T16:40:21.577526",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_0366c1e4/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.582063"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_0366c1e4/prompts/prompt_0366c1e4.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.584064"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_0366c1e4/design_variations/design_variation_variation_20250723164021_584249_5130.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.586145"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_0366c1e4/templates/template_0366c1e4.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.588743"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_0366c1e4/templates/template_0366c1e4.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.590568"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:21.590576"
+      }
+    },
+    "template_dir": "template_generations/template_0366c1e4",
+    "end_time": "2025-07-23T16:40:21.590623"
+  },
+  "pipeline_4ba93dbc": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T16:40:21.663780",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_4ba93dbc/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.668264"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_4ba93dbc/prompts/prompt_4ba93dbc.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.670521"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_4ba93dbc/design_variations/design_variation_variation_20250723164021_670930_2380.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.672843"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_4ba93dbc/templates/template_4ba93dbc.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.675610"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_4ba93dbc/templates/template_4ba93dbc.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:40:21.677889"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:40:21.677901"
+      }
+    },
+    "template_dir": "template_generations/template_4ba93dbc",
+    "end_time": "2025-07-23T16:40:21.677964"
+  },
+  "pipeline_a816d989": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T16:45:25.535460",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_a816d989/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:45:25.540394"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_a816d989/prompts/prompt_a816d989.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:45:25.542582"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_a816d989/design_variations/design_variation_variation_20250723164525_543095_4273.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:45:25.545017"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_a816d989/templates/template_a816d989.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:45:25.548078"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_a816d989/templates/template_a816d989.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:45:25.550535"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:45:25.550550"
+      }
+    },
+    "template_dir": "template_generations/template_a816d989",
+    "end_time": "2025-07-23T16:45:25.550688"
+  },
+  "pipeline_b5798f09": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T16:47:47.575331",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_b5798f09/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:47:47.580019"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_b5798f09/prompts/prompt_b5798f09.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:47:47.582316"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_b5798f09/design_variations/design_variation_variation_20250723164747_582643_2424.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:47:47.584682"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_b5798f09/templates/template_b5798f09.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:47:47.587472"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_b5798f09/templates/template_b5798f09.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:47:47.589632"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:47:47.589640"
+      }
+    },
+    "template_dir": "template_generations/template_b5798f09",
+    "end_time": "2025-07-23T16:47:47.589767"
+  },
+  "pipeline_2eec977d": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T16:49:15.897663",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_2eec977d/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:49:15.902439"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_2eec977d/prompts/prompt_2eec977d.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:49:15.904740"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_2eec977d/design_variations/design_variation_variation_20250723164915_905186_5678.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:49:15.907188"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_2eec977d/templates/template_2eec977d.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:49:15.910001"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_2eec977d/templates/template_2eec977d.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:49:15.912178"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:49:15.912187"
+      }
+    },
+    "template_dir": "template_generations/template_2eec977d",
+    "end_time": "2025-07-23T16:49:15.912287"
+  },
+  "pipeline_5411abd7": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T16:50:20.343944",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_5411abd7/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:50:20.349238"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_5411abd7/prompts/prompt_5411abd7.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:50:20.351564"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_5411abd7/design_variations/design_variation_variation_20250723165020_351858_9145.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:50:20.353979"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_5411abd7/templates/template_5411abd7.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:50:20.356835"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_5411abd7/templates/template_5411abd7.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T16:50:20.359111"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T16:50:20.359120"
+      }
+    },
+    "template_dir": "template_generations/template_5411abd7",
+    "end_time": "2025-07-23T16:50:20.359225"
+  },
+  "pipeline_839808bf": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T17:00:37.765162",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_839808bf/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T17:00:37.769770"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_839808bf/prompts/prompt_839808bf.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T17:00:37.772073"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_839808bf/design_variations/design_variation_variation_20250723170037_772275_6058.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T17:00:37.774430"
+      },
+      "template_engineer": {
+        "status": "success",
+        "output_file": "template_generations/template_839808bf/templates/template_839808bf.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T17:00:37.777319"
+      },
+      "cta_optimizer": {
+        "status": "success",
+        "output_file": "template_generations/template_839808bf/templates/template_839808bf.cta.php",
+        "message": "Completed",
+        "timestamp": "2025-07-23T17:00:37.779467"
+      },
+      "design_critic": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T17:00:37.779476"
+      }
+    },
+    "template_dir": "template_generations/template_839808bf",
+    "end_time": "2025-07-23T17:00:37.779578"
+  },
+  "pipeline_46e2201d": {
+    "request_file": "input/northern-roots-test.md",
+    "start_time": "2025-07-23T17:03:25.638201",
+    "status": "completed",
+    "agents": {
+      "request_interpreter": {
+        "status": "success",
+        "output_file": "template_generations/template_46e2201d/specs/template_spec.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T17:03:25.643411"
+      },
+      "prompt_designer": {
+        "status": "success",
+        "output_file": "template_generations/template_46e2201d/prompts/prompt_46e2201d.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T17:03:25.646174"
+      },
+      "design_variation_generator": {
+        "status": "success",
+        "output_file": "template_generations/template_46e2201d/design_variations/design_variation_variation_20250723170325_646816_3291.json",
+        "message": "Completed",
+        "timestamp": "2025-07-23T17:03:25.649200"
+      },
+      "template_engineer": {
+        "status": "failed",
+        "output_file": null,
+        "message": "Agent not found",
+        "timestamp": "2025-07-23T17:03:25.649210"
+      }
+    },
+    "template_dir": "template_generations/template_46e2201d",
+    "end_time": "2025-07-23T17:03:25.649320"
   }
 }

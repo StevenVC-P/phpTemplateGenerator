@@ -22,6 +22,180 @@ class RequestInterpreter:
         match = re.search(pattern, markdown, re.DOTALL | re.IGNORECASE)
         return match.group(1).strip() if match else ""
 
+    def extract_business_name(self, markdown_text):
+        """Extract business name from various patterns in the markdown"""
+        # Look for specific business name patterns first
+        patterns = [
+            r"for\s+([A-Z][A-Za-z\s&]+?),\s+a\s+",  # "for TechFlow Solutions, a local"
+            r"for\s+([A-Z][A-Za-z\s&]+?)\s+(?:business|company|service|shop|store|agency|firm)",
+            r"(?:business|company|service|shop|store|agency|firm):\s*([A-Z][A-Za-z\s&]+)",
+            r"([A-Z][A-Za-z\s&]+?)\s+(?:business|company|service|shop|store|agency|firm)",
+            r"# ([A-Z][A-Za-z\s&]+?)(?:\s+(?:Template|Request|Landing|Page))",
+        ]
+
+        for pattern in patterns:
+            match = re.search(pattern, markdown_text, re.IGNORECASE)
+            if match:
+                name = match.group(1).strip()
+                # Filter out generic terms, short matches, and text that looks like descriptions
+                excluded_terms = ['local', 'professional', 'modern', 'clean', 'business', 'service',
+                                'a local', 'the local', 'project description', 'create a', 'template']
+                if (len(name) > 3 and len(name) < 50 and  # Reasonable length for business name
+                    name.lower() not in excluded_terms and
+                    not any(excluded in name.lower() for excluded in excluded_terms) and
+                    not name.startswith('Create') and not name.startswith('Project')):
+                    return name
+
+        # Try to extract from project description
+        project_desc = self.extract_section(markdown_text, "Project Description")
+        if project_desc:
+            # Look for specific business types first
+            business_types = {
+                'it consulting': 'IT Consulting Services',
+                'hvac': 'HVAC Services',
+                'plumbing': 'Plumbing Services',
+                'electrical': 'Electrical Services',
+                'landscaping': 'Landscaping Services',
+                'cleaning': 'Cleaning Services',
+                'restaurant': 'Restaurant',
+                'dental': 'Dental Practice',
+                'law': 'Law Firm',
+                'accounting': 'Accounting Services',
+                'consulting': 'Consulting Services'
+            }
+
+            for keyword, business_name in business_types.items():
+                if keyword in project_desc.lower():
+                    return business_name
+
+        # Default fallback
+        return "Professional Service"
+
+    def extract_services(self, markdown_text):
+        """Extract services from the markdown content"""
+        services = []
+
+        # Look for services section with multiple possible headers
+        services_section = self.extract_section(markdown_text, "Services Offered")
+        if not services_section:
+            services_section = self.extract_section(markdown_text, "Services")
+        if not services_section:
+            services_section = self.extract_section(markdown_text, "Our Services")
+        if not services_section:
+            services_section = self.extract_section(markdown_text, "Sections Needed")
+
+        if services_section:
+            # Extract bullet points or list items, but filter out generic section names
+            lines = services_section.split('\n')
+            for line in lines:
+                line = line.strip()
+                if line.startswith('-') or line.startswith('*'):
+                    service = line[1:].strip()
+                    # Filter out generic section names and keep actual services
+                    generic_sections = ['hero section', 'services overview', 'about', 'testimonials',
+                                      'contact', 'footer', 'hero', 'contact information', 'social proof']
+                    if (service and len(service) > 3 and
+                        not any(generic in service.lower() for generic in generic_sections)):
+                        services.append(service)
+
+        # If no specific services found, try to infer from project description and requirements
+        if not services:
+            project_desc = self.extract_section(markdown_text, "Project Description")
+            requirements = self.extract_section(markdown_text, "Requirements")
+            combined_text = f"{project_desc} {requirements}".lower()
+
+            # Map keywords to services
+            service_keywords = {
+                'consultation': 'Professional Consultation',
+                'consulting': 'Business Consulting',
+                'repair': 'Repair Services',
+                'maintenance': 'Maintenance Services',
+                'installation': 'Installation Services',
+                'design': 'Design Services',
+                'development': 'Development Services',
+                'marketing': 'Marketing Services',
+                'seo': 'SEO Services',
+                'web': 'Web Services',
+                'support': 'Customer Support',
+                'training': 'Training Services',
+                'analysis': 'Analysis Services'
+            }
+
+            for keyword, service_name in service_keywords.items():
+                if keyword in combined_text:
+                    services.append(service_name)
+
+            # If still no services, provide generic ones based on business type
+            if not services:
+                if 'saas' in combined_text or 'software' in combined_text:
+                    services = ['Software Solutions', 'Technical Support', 'Implementation Services']
+                elif 'local' in combined_text:
+                    services = ['Professional Services', 'Local Support', 'Consultation']
+                else:
+                    services = ['Professional Services', 'Consultation', 'Support']
+
+        return services[:3]  # Limit to 3 services for better layout
+
+    def extract_location(self, markdown_text):
+        """Extract location information from markdown"""
+        # Look for location patterns with more comprehensive matching
+        location_patterns = [
+            r"serving\s+(?:the\s+)?([A-Z][a-z\s]+?)\s+(?:area|region|metro)(?:\s+in\s+([A-Z][a-z]+))?",
+            r"(?:in|serving|located in|based in)\s+([A-Z][a-z\s]+?),\s*([A-Z][a-z]+)",
+            r"([A-Z][a-z\s]+?),\s*([A-Z][A-Z])\s+(?:area|region|metro)",
+            r"([A-Z][a-z]+)\s+(?:area|region|metro)",
+            r"([A-Z][a-z]+),\s*([A-Z][a-z]+)",
+        ]
+
+        for pattern in location_patterns:
+            match = re.search(pattern, markdown_text, re.IGNORECASE)
+            if match:
+                if match.lastindex >= 2:  # Has both city and state
+                    city = match.group(1).strip()
+                    state = match.group(2).strip()
+                    return {
+                        "city": city,
+                        "state": state,
+                        "region": f"{city} Area"
+                    }
+                else:  # Only has one location component
+                    location = match.group(1).strip()
+                    # Handle special cases
+                    if "twin cities" in location.lower():
+                        return {
+                            "city": "Twin Cities",
+                            "state": "Minnesota",
+                            "region": "Twin Cities Metro"
+                        }
+                    else:
+                        return {
+                            "city": location,
+                            "state": "State",
+                            "region": f"{location} Area"
+                        }
+
+        # Default location
+        return {
+            "city": "Local Area",
+            "state": "State",
+            "region": "Regional"
+        }
+
+    def determine_project_type(self, markdown_text):
+        """Determine project type from content"""
+        text_lower = markdown_text.lower()
+
+        if any(term in text_lower for term in ['saas', 'software', 'app', 'platform', 'subscription']):
+            return "saas_landing_page"
+        elif any(term in text_lower for term in ['ecommerce', 'shop', 'store', 'product', 'buy', 'sell']):
+            return "ecommerce_page"
+        elif any(term in text_lower for term in ['portfolio', 'showcase', 'work', 'projects', 'gallery']):
+            return "portfolio_site"
+        elif any(term in text_lower for term in ['corporate', 'enterprise', 'company', 'organization']):
+            return "corporate_website"
+        else:
+            return "local_service_page"
+
     def parse_request_markdown(self, markdown_text):
         # Debug: check what we received
         print(f"🔍 parse_request_markdown called with:")
@@ -30,21 +204,31 @@ class RequestInterpreter:
         required_sections = self.config.get("input_format", {}).get("required_sections", [])
         optional_sections = self.config.get("input_format", {}).get("optional_sections", [])
 
+        # Extract dynamic content from the markdown
+        business_name = self.extract_business_name(markdown_text)
+        services = self.extract_services(markdown_text)
+        location = self.extract_location(markdown_text)
+        project_type = self.determine_project_type(markdown_text)
+
+        print(f"🔍 Extracted dynamic content:")
+        print(f"   Business Name: {business_name}")
+        print(f"   Services: {services}")
+        print(f"   Location: {location}")
+        print(f"   Project Type: {project_type}")
+
         spec = {
             "template_id": "template_001",
-            "project_type": "local_service_page",
+            "project_type": project_type,
             "status": "parsed_from_request",
-            "location": {
-                "city": "Ramsey",
-                "state": "Minnesota",
-                "region": "Twin Cities Metro"
-            },
+            "business_name": business_name,
+            "services": services,
+            "location": location,
             "responsive": True,
             "framework": "none",
             "audience": ["local_customers"],
             "sections": ["hero", "services", "about", "testimonials", "contact"],
             "layout_style": "single_page",
-            "primary_cta": "Call Now",
+            "primary_cta": "Get Started" if project_type == "saas_landing_page" else "Contact Us",
             "technical_notes": {
                 "language": "PHP",
                 "css": "manual_or_flexbox",

@@ -55,25 +55,64 @@
           "name": "classic_centered",
           "structure": "centered_content_with_background",
           "cta_placement": "below_text",
-          "visual_weight": "balanced"
+          "visual_weight": "balanced",
+          "complexity": "simple"
         },
         {
           "name": "split_screen",
           "structure": "text_left_visual_right",
           "cta_placement": "inline_with_text",
-          "visual_weight": "text_heavy"
+          "visual_weight": "text_heavy",
+          "complexity": "medium"
         },
         {
           "name": "overlay_hero",
           "structure": "full_background_with_overlay",
           "cta_placement": "prominent_center",
-          "visual_weight": "visual_heavy"
+          "visual_weight": "visual_heavy",
+          "complexity": "medium"
         },
         {
           "name": "minimal_focus",
           "structure": "typography_focused_minimal",
           "cta_placement": "subtle_below",
-          "visual_weight": "text_dominant"
+          "visual_weight": "text_dominant",
+          "complexity": "simple"
+        },
+        {
+          "name": "asymmetric_grid",
+          "structure": "irregular_grid_layout",
+          "cta_placement": "floating_sticky",
+          "visual_weight": "dynamic",
+          "complexity": "high"
+        },
+        {
+          "name": "diagonal_split",
+          "structure": "angled_content_division",
+          "cta_placement": "corner_positioned",
+          "visual_weight": "geometric",
+          "complexity": "high"
+        },
+        {
+          "name": "layered_parallax",
+          "structure": "multi_layer_depth",
+          "cta_placement": "depth_integrated",
+          "visual_weight": "immersive",
+          "complexity": "high"
+        },
+        {
+          "name": "card_mosaic",
+          "structure": "interactive_card_grid",
+          "cta_placement": "card_integrated",
+          "visual_weight": "modular",
+          "complexity": "high"
+        },
+        {
+          "name": "timeline_flow",
+          "structure": "vertical_story_progression",
+          "cta_placement": "flow_integrated",
+          "visual_weight": "narrative",
+          "complexity": "medium"
         }
       ],
       "section_arrangements": [
@@ -81,14 +120,26 @@
         "hero_about_features_pricing_testimonials_contact",
         "hero_features_testimonials_pricing_contact",
         "hero_pricing_features_contact",
-        "hero_features_cta_pricing_contact"
+        "hero_features_cta_pricing_contact",
+        "hero_services_about_testimonials_contact",
+        "hero_testimonials_services_about_contact",
+        "hero_services_split_testimonials_contact",
+        "hero_interactive_services_contact",
+        "hero_timeline_services_testimonials_contact"
       ],
       "grid_systems": [
         "three_column_equal",
         "two_column_sidebar",
         "four_column_masonry",
         "alternating_rows",
-        "card_based_flexible"
+        "card_based_flexible",
+        "asymmetric_grid",
+        "hexagonal_layout",
+        "diagonal_grid",
+        "floating_cards",
+        "magazine_layout",
+        "pinterest_masonry",
+        "bento_box_grid"
       ]
     },
     "typography_variations": {
@@ -120,6 +171,41 @@
           "body": "Lato",
           "accent": "Oswald",
           "personality": "bold, confident, impactful"
+        },
+        {
+          "name": "creative_display",
+          "heading": "Oswald",
+          "body": "Open Sans",
+          "accent": "Pacifico",
+          "personality": "creative, energetic, distinctive"
+        },
+        {
+          "name": "luxury_serif",
+          "heading": "Cormorant Garamond",
+          "body": "Lora",
+          "accent": "Dancing Script",
+          "personality": "luxurious, elegant, premium"
+        },
+        {
+          "name": "tech_futuristic",
+          "heading": "Orbitron",
+          "body": "Exo 2",
+          "accent": "Rajdhani",
+          "personality": "futuristic, tech-savvy, innovative"
+        },
+        {
+          "name": "editorial_magazine",
+          "heading": "Abril Fatface",
+          "body": "Merriweather",
+          "accent": "Libre Baskerville",
+          "personality": "editorial, authoritative, classic"
+        },
+        {
+          "name": "startup_dynamic",
+          "heading": "Space Grotesk",
+          "body": "DM Sans",
+          "accent": "Fira Code",
+          "personality": "dynamic, startup-friendly, modern"
         }
       ],
       "size_scales": [
@@ -250,21 +336,52 @@
       "organic_blob_shapes",
       "diagonal_lines_pattern",
       "dot_matrix_overlay",
-      "gradient_mesh_background"
+      "gradient_mesh_background",
+      "animated_particles",
+      "flowing_waves",
+      "crystalline_structure",
+      "neural_network_lines",
+      "topographic_contours",
+      "hexagonal_tessellation",
+      "fractal_patterns"
     ],
     "decorative_elements": [
       "floating_icons",
       "abstract_shapes",
       "line_art_illustrations",
       "geometric_dividers",
-      "organic_separators"
+      "organic_separators",
+      "morphing_blobs",
+      "particle_systems",
+      "svg_animations",
+      "css_art_elements",
+      "interactive_graphics",
+      "3d_transforms",
+      "glassmorphism_panels"
     ],
     "interaction_styles": [
       "hover_lift_animations",
       "color_transition_effects",
       "scale_transform_buttons",
       "slide_in_content",
-      "fade_reveal_sections"
+      "fade_reveal_sections",
+      "parallax_scrolling",
+      "magnetic_hover_effects",
+      "morphing_transitions",
+      "elastic_animations",
+      "stagger_reveal_animations",
+      "perspective_transforms",
+      "liquid_animations"
+    ],
+    "layout_effects": [
+      "diagonal_sections",
+      "overlapping_layers",
+      "floating_elements",
+      "sticky_navigation",
+      "infinite_scroll",
+      "masonry_auto_fit",
+      "grid_morphing",
+      "section_transitions"
     ]
   },
   "quality_assurance": {
