@@ -1,0 +1,132 @@
+{
+  "agent_id": "wordpress_theme_assembler",
+  "name": "WordPress Theme Assembler Agent",
+  "version": "1.0",
+  "description": "Transforms static HTML/CSS templates into complete WordPress theme structures with proper file hierarchy and WordPress-specific functionality",
+  "capabilities": [
+    "wordpress_theme_structure_generation",
+    "template_hierarchy_implementation",
+    "functions_php_generation",
+    "style_css_with_metadata",
+    "gutenberg_compatibility",
+    "wordpress_hooks_integration"
+  ],
+  "input_format": {
+    "type": "php",
+    "file_name": "template_{id}.php",
+    "description": "Static PHP template with embedded CSS and HTML structure"
+  },
+  "output_format": {
+    "type": "wordpress_theme",
+    "directory_name": "wordpress_theme_{id}",
+    "includes": [
+      "index.php",
+      "style.css",
+      "functions.php",
+      "header.php",
+      "footer.php",
+      "page.php",
+      "single.php",
+      "screenshot.png"
+    ]
+  },
+  "wordpress_standards": {
+    "wp_version": "6.0+",
+    "php_version": "7.4+",
+    "theme_structure": "standard_hierarchy",
+    "gutenberg_support": true,
+    "block_editor_compatible": true,
+    "required_functions": [
+      "wp_enqueue_scripts",
+      "add_theme_support",
+      "register_nav_menus",
+      "add_post_type_support"
+    ]
+  },
+  "theme_features": {
+    "responsive_design": true,
+    "custom_logo": true,
+    "custom_header": true,
+    "custom_background": true,
+    "post_thumbnails": true,
+    "automatic_feed_links": true,
+    "html5_support": [
+      "search-form",
+      "comment-form",
+      "comment-list",
+      "gallery",
+      "caption"
+    ],
+    "gutenberg_blocks": [
+      "core/paragraph",
+      "core/heading",
+      "core/image",
+      "core/button",
+      "core/columns",
+      "core/group"
+    ]
+  },
+  "file_generation_rules": {
+    "index.php": {
+      "purpose": "Main template file",
+      "includes": ["header", "main_content", "footer"],
+      "wp_functions": ["get_header", "get_footer", "have_posts", "the_post"]
+    },
+    "style.css": {
+      "purpose": "Theme stylesheet with metadata",
+      "includes": ["theme_header", "extracted_css", "responsive_styles"],
+      "metadata_required": true
+    },
+    "functions.php": {
+      "purpose": "Theme functionality and WordPress hooks",
+      "includes": ["enqueue_scripts", "theme_support", "nav_menus", "custom_functions"],
+      "security": ["no_direct_access_check"]
+    },
+    "header.php": {
+      "purpose": "Common header template",
+      "includes": ["wp_head", "navigation", "site_branding"],
+      "wp_functions": ["wp_head", "body_class", "get_bloginfo"]
+    },
+    "footer.php": {
+      "purpose": "Common footer template",
+      "includes": ["footer_content", "wp_footer"],
+      "wp_functions": ["wp_footer", "get_bloginfo"]
+    }
+  },
+  "extraction_patterns": {
+    "css_extraction": {
+      "method": "regex_based",
+      "patterns": ["<style[^>]*>(.*?)</style>"],
+      "cleanup": ["remove_style_tags", "format_css", "add_responsive_queries"]
+    },
+    "content_sections": {
+      "header": ["nav", "site-header", "hero"],
+      "main": ["main", "content", "services", "about"],
+      "footer": ["footer", "contact", "site-footer"]
+    },
+    "wordpress_integration": {
+      "title_replacement": "<?php wp_title(); ?>",
+      "content_replacement": "<?php the_content(); ?>",
+      "menu_replacement": "<?php wp_nav_menu(); ?>"
+    }
+  },
+  "quality_standards": {
+    "code_validation": true,
+    "wordpress_coding_standards": true,
+    "security_best_practices": true,
+    "performance_optimization": true,
+    "accessibility_compliance": "WCAG_2.1_AA"
+  },
+  "error_handling": {
+    "invalid_html_structure": "attempt_repair_and_warn",
+    "missing_css": "generate_basic_styles",
+    "malformed_php": "sanitize_and_escape",
+    "wordpress_function_conflicts": "namespace_and_prefix"
+  },
+  "testing_requirements": {
+    "theme_check_plugin": true,
+    "gutenberg_compatibility": true,
+    "responsive_testing": ["mobile", "tablet", "desktop"],
+    "browser_compatibility": ["chrome", "firefox", "safari", "edge"]
+  }
+}

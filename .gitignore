@@ -59,6 +59,29 @@ htmlcov/
 .env.test
 .env.production
 
+# =============================================================================
+# NEW REFACTORED ARCHITECTURE - Pipeline Output Structure
+# =============================================================================
+
+# Pipeline output directories (new structure)
+pipeline_output/
+!pipeline_output/.gitkeep
+
+# Test outputs and reports
+test_data/
+test_reports/
+test_outputs/
+test_results/
+
+# Pipeline state and logs
+pipeline_state.json
+pipeline_state.json.backup
+orchestrator.log
+
+# =============================================================================
+# LEGACY STRUCTURE - Generated Files (to be cleaned up)
+# =============================================================================
+
 # Generated templates (keep examples, ignore generated)
 templates/template_*.php
 !templates/example_*.php
@@ -75,6 +98,7 @@ reviews/template_*.md
 
 # Generated specs (keep examples, ignore generated)
 specs/template_*.json
+specs/design_variation_*.json
 !specs/example_*.json
 !specs/template_spec.json
 
@@ -87,24 +111,26 @@ prompts/prompt_*.json
 design_variations/design_variation_*.json
 !design_variations/example_*.json
 
-# Organized template generations (keep structure, ignore content)
-template_generations/template_*/
+# Legacy template generations - EXCLUDE ALL
+template_generations/
 !template_generations/.gitkeep
 
-# Visual analysis outputs
-output/template_*.json
-output/visual_analysis_*.json
-output/screenshot_*.png
-screenshots/
-*.png
-*.jpg
-*.jpeg
-!docs/images/
+# Legacy output directories - EXCLUDE ALL
+output/
+!output/.gitkeep
 
-# Package outputs
-final/template_*/
-final/packager_output.json
-!final/example_*/
+# Legacy SEO enhanced themes - EXCLUDE ALL
+seo_enhanced_theme_*/
+
+# Legacy refinement directories - EXCLUDE ALL
+refinements/
+
+# Legacy final outputs - EXCLUDE ALL
+final/
+!final/.gitkeep
+
+# Legacy temp extractions - EXCLUDE ALL
+temp_extract_*/
 
 # Refinement summaries
 refinement_summary_*.json
@@ -112,6 +138,28 @@ refinement_summary_*.json
 # Agent conversation logs
 agent_conversations/
 *.conversation.json
+
+# =============================================================================
+# GENERATED WORDPRESS THEMES AND PACKAGES
+# =============================================================================
+
+# WordPress theme packages (zip files)
+*.zip
+!docs/**/*.zip
+!examples/**/*.zip
+
+# WordPress theme directories
+wordpress_theme_package/
+wordpress_theme_packages/
+
+# Demo files and temporary extractions
+demo_*.html
+demo_multipage/
+*.conversation.json
+
+# =============================================================================
+# SYSTEM AND DEVELOPMENT FILES
+# =============================================================================
 
 # System and OS files
 .DS_Store
@@ -149,10 +197,6 @@ settings.local.py
 docs/_build/
 docs/site/
 
-# Test outputs
-test_outputs/
-test_results/
-
 # Local development servers
 .php_cs.cache
 composer.phar
@@ -164,15 +208,58 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# =============================================================================
+# DEVELOPMENT AND TEST FILES
+# =============================================================================
+
+# Test scripts (keep in repo for reference but ignore outputs)
+test_*.py
+!test_runner.py
+manual_*.py
+debug_*.py
+compare_*.py
+view_*.py
+
+# Manual inspection and debugging files
+manual_inspection.py
+manual_driver.py
+
+# Temporary development files
+bluehost-mobile-menu-fix.js
+mailpoet-functions.php
+
+# =============================================================================
+# DIRECTORY STRUCTURE PRESERVATION
+# =============================================================================
+
 # Keep important directories but ignore their contents
 !input/.gitkeep
-!output/.gitkeep
 !templates/.gitkeep
 !reviews/.gitkeep
 !specs/.gitkeep
-!final/.gitkeep
 !prompts/.gitkeep
 !design_variations/.gitkeep
 !utils/.gitkeep
 !agents/.gitkeep
 !mcp/.gitkeep
+!docs/.gitkeep
+
+# =============================================================================
+# IMPORTANT: Keep example files and documentation
+# =============================================================================
+
+# Keep example input files
+!input/example-*.md
+!input/DeansPCRepair.md
+
+# Keep template examples
+!templates/multi_page_request_template.md
+
+# Keep documentation
+!docs/**/*
+!*.md
+!README.md
+!CHANGELOG.md
+!CONTRIBUTING.md
+!REFACTORING_SUMMARY.md
+!WORDPRESS_INSTALLATION_GUIDE.md

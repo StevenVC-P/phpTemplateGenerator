@@ -1,0 +1,196 @@
+{
+  "agent_id": "seo_optimizer",
+  "name": "SEO Optimizer Agent",
+  "version": "1.0",
+  "description": "Enhances templates with local SEO optimization, schema markup, and metadata for improved search engine visibility",
+  "capabilities": [
+    "local_seo_optimization",
+    "schema_markup_generation",
+    "meta_tag_optimization",
+    "structured_data_implementation",
+    "keyword_optimization",
+    "open_graph_integration"
+  ],
+  "input_format": {
+    "type": "wordpress_theme",
+    "directory_pattern": "wordpress_theme_{id}",
+    "required_files": ["index.php", "header.php", "style.css"]
+  },
+  "output_format": {
+    "type": "seo_enhanced_theme",
+    "directory_name": "seo_enhanced_theme_{id}",
+    "modifications": [
+      "enhanced_meta_tags",
+      "local_business_schema",
+      "optimized_content_structure",
+      "seo_friendly_urls"
+    ]
+  },
+  "seo_features": {
+    "local_seo": {
+      "business_schema": true,
+      "local_keywords": true,
+      "geographic_targeting": true,
+      "nap_consistency": true,
+      "local_structured_data": true
+    },
+    "technical_seo": {
+      "meta_descriptions": true,
+      "title_optimization": true,
+      "canonical_urls": true,
+      "robots_meta": true,
+      "sitemap_ready": true
+    },
+    "content_seo": {
+      "heading_hierarchy": true,
+      "keyword_density": true,
+      "semantic_markup": true,
+      "internal_linking": true,
+      "image_alt_tags": true
+    },
+    "social_seo": {
+      "open_graph": true,
+      "twitter_cards": true,
+      "social_sharing": true
+    }
+  },
+  "schema_types": {
+    "local_business": {
+      "required_fields": [
+        "name",
+        "address",
+        "telephone",
+        "url",
+        "openingHours",
+        "geo"
+      ],
+      "optional_fields": [
+        "description",
+        "image",
+        "priceRange",
+        "paymentAccepted",
+        "currenciesAccepted"
+      ]
+    },
+    "service": {
+      "required_fields": [
+        "name",
+        "provider",
+        "areaServed",
+        "serviceType"
+      ],
+      "optional_fields": [
+        "description",
+        "offers",
+        "review",
+        "aggregateRating"
+      ]
+    },
+    "organization": {
+      "required_fields": [
+        "name",
+        "url",
+        "logo"
+      ],
+      "optional_fields": [
+        "contactPoint",
+        "sameAs",
+        "foundingDate"
+      ]
+    }
+  },
+  "local_seo_patterns": {
+    "title_templates": [
+      "{service} in {city}, {state} | {business_name}",
+      "{business_name} - {service} Services in {city}",
+      "Professional {service} | {city}, {state} | {business_name}"
+    ],
+    "meta_description_templates": [
+      "Professional {service} in {city}, {state}. {business_name} provides {services_list}. Call {phone} for a free quote!",
+      "Looking for {service} in {city}? {business_name} offers {services_list}. Serving {area} since {year}.",
+      "{business_name} - Your trusted {service} provider in {city}, {state}. {services_list}. Contact us today!"
+    ],
+    "heading_patterns": [
+      "h1: {service} in {city}, {state}",
+      "h2: Why Choose {business_name} for {service}?",
+      "h2: Our {service} Services in {area}",
+      "h3: Professional {service_type} Solutions"
+    ]
+  },
+  "keyword_optimization": {
+    "primary_keyword_density": "1-3%",
+    "secondary_keyword_density": "0.5-1%",
+    "keyword_placement": [
+      "title_tag",
+      "meta_description",
+      "h1_tag",
+      "first_paragraph",
+      "image_alt_tags",
+      "url_slug"
+    ],
+    "local_modifiers": [
+      "near me",
+      "in {city}",
+      "{city} {service}",
+      "local {service}",
+      "{area} {service}"
+    ]
+  },
+  "performance_seo": {
+    "page_speed": {
+      "css_minification": true,
+      "image_optimization": true,
+      "lazy_loading": true,
+      "critical_css": true
+    },
+    "mobile_seo": {
+      "mobile_friendly": true,
+      "responsive_design": true,
+      "touch_friendly": true,
+      "fast_mobile_pages": true
+    }
+  },
+  "analytics_integration": {
+    "google_analytics": {
+      "gtag_support": true,
+      "event_tracking": true,
+      "conversion_tracking": true
+    },
+    "google_search_console": {
+      "verification_meta": true,
+      "sitemap_reference": true
+    },
+    "local_seo_tools": {
+      "google_my_business": true,
+      "bing_places": true,
+      "local_citations": true
+    }
+  },
+  "content_enhancement": {
+    "call_to_action_optimization": {
+      "local_phone_numbers": true,
+      "location_specific_ctas": true,
+      "urgency_indicators": true
+    },
+    "trust_signals": {
+      "business_credentials": true,
+      "customer_reviews": true,
+      "certifications": true,
+      "years_in_business": true
+    }
+  },
+  "quality_standards": {
+    "seo_score_target": "> 85",
+    "page_speed_target": "< 3 seconds",
+    "mobile_usability": "100%",
+    "structured_data_validation": true,
+    "accessibility_compliance": "WCAG 2.1 AA"
+  },
+  "testing_requirements": {
+    "google_rich_results_test": true,
+    "schema_markup_validator": true,
+    "mobile_friendly_test": true,
+    "page_speed_insights": true,
+    "local_seo_audit": true
+  }
+}

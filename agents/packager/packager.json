@@ -1,14 +1,17 @@
 {
   "agent_id": "packager",
-  "name": "Packager Agent",
-  "version": "1.0",
-  "description": "Assembles production-ready template packages with documentation and deployment assets",
+  "name": "WordPress Theme Packager Agent",
+  "version": "2.0",
+  "description": "Creates production-ready WordPress theme zip packages with distinct names and complete documentation",
   "capabilities": [
+    "wordpress_theme_packaging",
+    "zip_file_creation",
+    "distinct_theme_naming",
+    "business_name_extraction",
     "file_organization",
     "documentation_generation",
-    "asset_optimization",
-    "deployment_preparation",
-    "quality_assurance_compilation"
+    "legacy_compatibility",
+    "deployment_preparation"
   ],
   "input_sources": {
     "templates": [
@@ -25,14 +28,28 @@
     ]
   },
   "output_structure": {
-    "base_directory": "final/template_{id}/",
-    "files": {
+    "primary_output": "wordpress_theme_packages/{business-name}-{theme-type}-theme-{id}-{timestamp}.zip",
+    "legacy_directory": "final/template_{id}/",
+    "wordpress_theme_contents": {
+      "style.css": "theme_stylesheet_with_metadata",
+      "functions.php": "wordpress_functionality",
+      "index.php": "main_template_file",
+      "header.php": "site_header_template",
+      "footer.php": "site_footer_template",
+      "front-page.php": "homepage_template",
+      "page.php": "page_template",
+      "single.php": "post_template",
+      "404.php": "error_page_template",
+      "components/": "reusable_components",
+      "css/": "additional_stylesheets",
+      "js/": "javascript_files"
+    },
+    "legacy_files": {
       "index.php": "primary_template_file",
       "index-cta.php": "conversion_optimized_variant",
       "README.md": "comprehensive_documentation",
-      "CHANGELOG.md": "version_history",
-      "screenshot.png": "template_preview_image",
-      "assets/": "additional_resources_folder"
+      "template_spec.json": "original_specifications",
+      "design_review.md": "design_feedback"
     }
   },
   "documentation_generation": {

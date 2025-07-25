@@ -1,0 +1,72 @@
+{
+  "agent_id": "theme_validator",
+  "name": "WordPress Theme Validator",
+  "version": "1.0",
+  "description": "Validates WordPress themes for quality, structure, security, and compliance with WordPress standards",
+  "capabilities": [
+    "file_structure_validation",
+    "php_code_analysis",
+    "css_validation",
+    "html_validation",
+    "accessibility_checking",
+    "security_scanning",
+    "wordpress_compliance",
+    "quality_scoring"
+  ],
+  "input_format": {
+    "type": "directory",
+    "description": "WordPress theme directory containing PHP, CSS, and other theme files"
+  },
+  "output_format": {
+    "type": "json",
+    "file_name": "validation_report_{id}.json",
+    "schema": {
+      "theme_path": "string",
+      "overall_score": "number",
+      "issues": "array",
+      "file_analysis": "object",
+      "recommendations": "array",
+      "summary": "object"
+    }
+  },
+  "validation_rules": {
+    "required_files": [
+      "style.css",
+      "index.php",
+      "functions.php"
+    ],
+    "recommended_files": [
+      "header.php",
+      "footer.php",
+      "single.php",
+      "page.php",
+      "404.php"
+    ],
+    "security_checks": [
+      "no_eval_usage",
+      "no_exec_usage",
+      "proper_escaping",
+      "nonce_verification"
+    ],
+    "accessibility_checks": [
+      "alt_attributes",
+      "aria_labels",
+      "semantic_html",
+      "color_contrast"
+    ]
+  },
+  "scoring_criteria": {
+    "error_penalty": 2.0,
+    "warning_penalty": 0.5,
+    "info_penalty": 0.1,
+    "max_score": 10.0,
+    "min_score": 0.0
+  },
+  "quality_thresholds": {
+    "excellent": 9.0,
+    "good": 7.5,
+    "acceptable": 6.0,
+    "needs_improvement": 4.0,
+    "poor": 2.0
+  }
+}

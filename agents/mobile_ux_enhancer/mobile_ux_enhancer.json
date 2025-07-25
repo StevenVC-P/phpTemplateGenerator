@@ -1,0 +1,140 @@
+{
+  "agent_id": "mobile_ux_enhancer",
+  "name": "Mobile UX Enhancement Agent",
+  "version": "1.0",
+  "description": "Specializes in creating mobile-first, interactive, and visually polished WordPress themes with strong visual hierarchy, depth, and user engagement",
+  "capabilities": [
+    "mobile_first_design",
+    "visual_hierarchy_optimization",
+    "interactive_element_enhancement",
+    "depth_and_contrast_creation",
+    "touch_friendly_interfaces",
+    "progressive_disclosure",
+    "micro_interactions",
+    "visual_flow_optimization"
+  ],
+  "input_format": {
+    "type": "wordpress_theme_directory",
+    "description": "Complete WordPress theme directory with all template files"
+  },
+  "output_format": {
+    "type": "enhanced_wordpress_theme",
+    "description": "Mobile-optimized WordPress theme with enhanced UX and visual polish"
+  },
+  "mobile_ux_principles": {
+    "visual_hierarchy": {
+      "contrast_levels": ["high", "medium", "subtle"],
+      "spacing_system": "8px_grid_based",
+      "typography_scale": "mobile_optimized_modular",
+      "color_depth": "layered_with_shadows"
+    },
+    "interactive_elements": {
+      "touch_targets": "minimum_44px",
+      "hover_states": "mobile_appropriate",
+      "click_feedback": "immediate_visual_response",
+      "loading_states": "skeleton_screens"
+    },
+    "content_flow": {
+      "above_fold": "hero_with_visual_hook",
+      "service_presentation": "card_based_with_depth",
+      "call_to_action": "prominent_and_contextual",
+      "navigation": "thumb_friendly"
+    }
+  },
+  "enhancement_strategies": {
+    "depth_creation": {
+      "card_shadows": "layered_elevation_system",
+      "background_layers": "subtle_gradients_and_textures",
+      "border_treatments": "rounded_corners_with_highlights",
+      "spacing_rhythm": "consistent_vertical_rhythm"
+    },
+    "visual_hooks": {
+      "icons": "custom_svg_with_animations",
+      "imagery": "hero_backgrounds_and_service_illustrations",
+      "animations": "scroll_triggered_and_micro_interactions",
+      "color_accents": "strategic_brand_color_placement"
+    },
+    "clickable_areas": {
+      "service_cards": "full_card_clickable_with_hover_states",
+      "buttons": "prominent_with_clear_affordances",
+      "navigation": "easy_thumb_navigation",
+      "contact_elements": "one_tap_actions"
+    }
+  },
+  "mobile_optimizations": {
+    "performance": {
+      "critical_css": "above_fold_inline",
+      "lazy_loading": "images_and_non_critical_content",
+      "font_loading": "optimized_web_fonts",
+      "asset_optimization": "minified_and_compressed"
+    },
+    "accessibility": {
+      "touch_targets": "wcag_compliant_sizing",
+      "contrast_ratios": "aa_level_minimum",
+      "focus_indicators": "clear_keyboard_navigation",
+      "screen_reader": "semantic_markup"
+    },
+    "responsive_behavior": {
+      "breakpoints": "mobile_first_progressive_enhancement",
+      "fluid_typography": "clamp_based_scaling",
+      "flexible_layouts": "css_grid_and_flexbox",
+      "image_optimization": "responsive_images_with_srcset"
+    }
+  },
+  "component_enhancements": {
+    "hero_section": {
+      "visual_impact": "gradient_backgrounds_with_overlay",
+      "content_hierarchy": "large_headlines_with_supporting_text",
+      "call_to_action": "prominent_button_with_secondary_action",
+      "mobile_optimization": "portrait_friendly_layout"
+    },
+    "service_cards": {
+      "card_design": "elevated_with_subtle_shadows",
+      "content_structure": "icon_title_description_cta",
+      "interaction_states": "hover_lift_and_color_changes",
+      "mobile_layout": "single_column_with_spacing"
+    },
+    "navigation": {
+      "mobile_menu": "slide_out_with_overlay",
+      "touch_optimization": "large_tap_targets",
+      "visual_feedback": "active_states_and_transitions",
+      "accessibility": "keyboard_and_screen_reader_friendly"
+    },
+    "contact_sections": {
+      "prominence": "sticky_or_floating_contact_button",
+      "information_hierarchy": "phone_first_then_details",
+      "interaction_design": "one_tap_call_and_message",
+      "visual_treatment": "contrasting_background_section"
+    }
+  },
+  "css_enhancements": {
+    "modern_features": [
+      "css_custom_properties",
+      "css_grid_layouts",
+      "flexbox_alignment",
+      "css_transforms_and_transitions",
+      "backdrop_filter_effects",
+      "css_clamp_for_responsive_typography"
+    ],
+    "animation_library": [
+      "fade_in_on_scroll",
+      "slide_up_cards",
+      "button_press_feedback",
+      "loading_skeleton_animations",
+      "hover_lift_effects",
+      "smooth_page_transitions"
+    ]
+  },
+  "quality_standards": {
+    "mobile_performance": "lighthouse_score_90_plus",
+    "accessibility": "wcag_aa_compliance",
+    "visual_polish": "consistent_design_system",
+    "user_experience": "intuitive_navigation_and_clear_hierarchy"
+  },
+  "testing_requirements": {
+    "device_testing": "ios_and_android_devices",
+    "browser_testing": "mobile_safari_and_chrome",
+    "performance_testing": "3g_network_simulation",
+    "accessibility_testing": "screen_reader_and_keyboard_navigation"
+  }
+}

@@ -49,15 +49,15 @@ class TemplatePipeline:
             "design_variation_generator",
             "template_engineer",
             "cta_optimizer",
-            "design_critic",
-            "visual_inspector",
-            "code_reviewer",
-            "refinement_orchestrator",
-            "packager"
+            "wordpress_theme_assembler",
+            "mobile_ux_enhancer",
+            "seo_optimizer"
+            # Temporarily disabled: "component_library", "design_critic", "visual_inspector", "code_reviewer", "refinement_orchestrator", "packager"
         ]
         self.max_refinement_iterations = 5
         self.load_previous_state()
-        self.load_agents()
+        # Force reload agents to pick up any code changes
+        self.reload_agents()
 
     def load_previous_state(self):
         state_path = Path(self.config.state_file)
@@ -69,8 +69,23 @@ class TemplatePipeline:
     def save_state(self):
         Path(self.config.state_file).write_text(json.dumps(self.pipeline_state, indent=2))
 
+    def reload_agents(self):
+        """Force reload all agents to pick up code changes"""
+        logger.info("🔄 Reloading all agents...")
+        self.agents.clear()
+        self.load_agents()
+        logger.info("✅ All agents reloaded")
+
     def load_agents(self):
+        # Clear any cached modules to ensure we get the latest agent code
+        import sys
         agents_root = Path(self.config.agents_dir)
+
+        # Remove any previously cached agent modules
+        modules_to_remove = [name for name in sys.modules.keys() if name.startswith('agents.')]
+        for module_name in modules_to_remove:
+            del sys.modules[module_name]
+
         for folder in agents_root.iterdir():
             if folder.is_dir():
                 agent_id = folder.name
@@ -194,6 +209,9 @@ class TemplatePipeline:
                     logger.warning("⚠️ Max refinement iterations reached — exiting.")
                     break
 
+        # Create final packaged output
+        await self.create_final_output(pipeline_id)
+
         # Mark pipeline as completed
         if pipeline_id in self.pipeline_state:
             self.pipeline_state[pipeline_id]['status'] = 'completed'
@@ -202,9 +220,115 @@ class TemplatePipeline:
 
         logger.info(f"✅ Pipeline {pipeline_id} completed")
 
+    async def create_final_output(self, pipeline_id: str):
+        """Create final packaged output in the output folder"""
+        try:
+            import shutil
+            from pathlib import Path
+
+            # Find the final theme directory
+            # Extract template ID from pipeline_id (remove 'pipeline_' prefix)
+            template_id = pipeline_id.replace('pipeline_', '')
+
+            # Try to find the best available theme directory (in order of preference)
+            theme_source_dir = None
+
+            # 1. Component enhanced theme (if available)
+            component_enhanced_dir = Path(f"template_generations/component_enhanced_theme_{template_id}")
+            if component_enhanced_dir.exists():
+                wordpress_theme_dir = component_enhanced_dir / "wordpress_theme_000"
+                if wordpress_theme_dir.exists():
+                    theme_source_dir = wordpress_theme_dir
+                    print(f"📦 Using component enhanced theme for final output")
+
+            # 2. Mobile enhanced theme (fallback)
+            if not theme_source_dir:
+                mobile_enhanced_dir = Path(f"template_generations/template_{template_id}/mobile_enhanced_theme_{pipeline_id}")
+                if mobile_enhanced_dir.exists():
+                    theme_source_dir = mobile_enhanced_dir
+                    print(f"📦 Using mobile enhanced theme for final output")
+
+            # 3. SEO enhanced theme (fallback)
+            if not theme_source_dir:
+                seo_enhanced_dir = Path(f"seo_enhanced_theme_000")
+                if seo_enhanced_dir.exists():
+                    theme_source_dir = seo_enhanced_dir
+                    print(f"📦 Using SEO enhanced theme for final output")
+
+            # 4. Basic WordPress theme (last resort)
+            if not theme_source_dir:
+                basic_theme_dir = Path(f"template_generations/template_{template_id}/wordpress_theme_000")
+                if basic_theme_dir.exists():
+                    theme_source_dir = basic_theme_dir
+                    print(f"📦 Using basic WordPress theme for final output")
+
+            if not theme_source_dir:
+                logger.warning(f"⚠️ No theme directory found for {pipeline_id}")
+                return
+
+            # Create output directory if it doesn't exist
+            output_dir = Path("output")
+            output_dir.mkdir(exist_ok=True)
+
+            # Generate dynamic theme name based on business info
+            theme_name = self.generate_theme_name(template_id, pipeline_id)
+
+            # Create final zip file
+            output_zip = output_dir / f"{theme_name}.zip"
+
+            # Use PowerShell to create zip file
+            import subprocess
+            cmd = [
+                "powershell", "-Command",
+                f"Compress-Archive -Path '{theme_source_dir}/*' -DestinationPath '{output_zip}' -Force"
+            ]
+
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            if result.returncode == 0:
+                logger.info(f"📦 Final theme package created: {output_zip}")
+            else:
+                logger.error(f"❌ Failed to create zip: {result.stderr}")
+
+        except Exception as e:
+            logger.error(f"❌ Error creating final output: {e}")
+
     def generate_pipeline_id(self) -> str:
         from uuid import uuid4
         return f"pipeline_{uuid4().hex[:8]}"
+
+    def generate_theme_name(self, template_id: str, pipeline_id: str) -> str:
+        """Generate a dynamic theme name based on business info from the spec"""
+        import re
+        try:
+            # Try to read business info from the spec file
+            template_dir = f"template_generations/template_{template_id}"
+            spec_file = Path(template_dir) / "specs" / f"template_spec.json"
+
+            if spec_file.exists():
+                import json
+                spec_data = json.loads(spec_file.read_text())
+                business_info = spec_data.get("business_info", {})
+                business_name = business_info.get("business_name", "")
+                business_type = business_info.get("business_type", "")
+
+                if business_name:
+                    # Clean business name for filename
+                    clean_name = re.sub(r'[^\w\s-]', '', business_name.lower())
+                    clean_name = re.sub(r'\s+', '-', clean_name)
+                    clean_name = re.sub(r'-+', '-', clean_name).strip('-')
+
+                    # Add business type if available
+                    if business_type and business_type != "Service Business":
+                        clean_type = re.sub(r'[^\w\s-]', '', business_type.lower())
+                        clean_type = re.sub(r'\s+', '-', clean_type)
+                        return f"{clean_name}-{clean_type}-theme-{template_id}"
+                    else:
+                        return f"{clean_name}-theme-{template_id}"
+        except Exception as e:
+            logger.warning(f"⚠️ Could not generate dynamic theme name: {e}")
+
+        # Fallback to generic name
+        return f"wordpress-theme-{template_id}"
     
     def get_input_path(self, agent_id: str, pipeline_id: str) -> str:
         # For organized template structure, use pipeline-specific paths
@@ -226,8 +350,16 @@ class TemplatePipeline:
                 return f"{template_dir}/prompts/prompt_{pipeline_id.replace('pipeline_', '')}.json"
             elif agent_id == "cta_optimizer":
                 return f"{template_dir}/templates/template_{pipeline_id.replace('pipeline_', '')}.php"
-            elif agent_id in ["design_critic", "code_reviewer", "visual_inspector"]:
+            elif agent_id == "wordpress_theme_assembler":
                 return f"{template_dir}/templates/template_{pipeline_id.replace('pipeline_', '')}.cta.php"
+            elif agent_id == "mobile_ux_enhancer":
+                return f"template_generations/template_{pipeline_id.replace('pipeline_', '')}/wordpress_theme_000"
+            elif agent_id == "seo_optimizer":
+                return f"template_generations/mobile_enhanced_theme_{pipeline_id.replace('pipeline_', '')}"
+            elif agent_id == "component_library":
+                return f"template_generations/seo_enhanced_theme_{pipeline_id.replace('pipeline_', '')}"
+            elif agent_id in ["design_critic", "code_reviewer", "visual_inspector"]:
+                return f"template_generations/component_enhanced_theme_{pipeline_id.replace('pipeline_', '')}"
             elif agent_id == "refinement_orchestrator":
                 return f"{template_dir}/reviews/"
             elif agent_id == "packager":
@@ -244,8 +376,16 @@ class TemplatePipeline:
                 return f"{self.config.prompts_dir}/prompt_001.json"
             elif agent_id == "cta_optimizer":
                 return f"{self.config.templates_dir}/template_001.php"
-            elif agent_id in ["design_critic", "code_reviewer", "visual_inspector"]:
+            elif agent_id == "wordpress_theme_assembler":
                 return f"{self.config.templates_dir}/template_001.cta.php"
+            elif agent_id == "mobile_ux_enhancer":
+                return "wordpress_theme_001"
+            elif agent_id == "seo_optimizer":
+                return "mobile_enhanced_theme_001"
+            elif agent_id == "component_library":
+                return "seo_enhanced_theme_001"
+            elif agent_id in ["design_critic", "code_reviewer", "visual_inspector"]:
+                return "component_enhanced_theme_001"
             elif agent_id == "refinement_orchestrator":
                 return f"{self.config.reviews_dir}/"
             elif agent_id == "packager":
@@ -276,6 +416,14 @@ class TemplatePipeline:
                 return f"{template_dir}/templates/template_{template_id}.php"
             elif agent_id == "cta_optimizer":
                 return f"{template_dir}/templates/template_{template_id}.cta.php"
+            elif agent_id == "wordpress_theme_assembler":
+                return f"{template_dir}/wordpress_theme_{template_id}"
+            elif agent_id == "mobile_ux_enhancer":
+                return f"{template_dir}/wordpress_theme_000"
+            elif agent_id == "seo_optimizer":
+                return f"{template_dir}/seo_enhanced_theme_{template_id}"
+            elif agent_id == "component_library":
+                return f"{template_dir}/component_enhanced_theme_{template_id}"
             elif agent_id == "design_critic":
                 return f"{template_dir}/reviews/template_{template_id}.design.md"
             elif agent_id == "code_reviewer":
@@ -300,6 +448,14 @@ class TemplatePipeline:
                 return f"{self.config.templates_dir}/template_001.php"
             elif agent_id == "cta_optimizer":
                 return f"{self.config.templates_dir}/template_001.cta.php"
+            elif agent_id == "wordpress_theme_assembler":
+                return "wordpress_theme_001"
+            elif agent_id == "mobile_ux_enhancer":
+                return "mobile_enhanced_theme_001"
+            elif agent_id == "seo_optimizer":
+                return "seo_enhanced_theme_001"
+            elif agent_id == "component_library":
+                return "component_enhanced_theme_001"
             elif agent_id == "design_critic":
                 return f"{self.config.reviews_dir}/template_001.design.md"
             elif agent_id == "code_reviewer":

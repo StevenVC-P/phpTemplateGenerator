@@ -1,0 +1,211 @@
+{
+  "agent_id": "component_library",
+  "name": "Component Library Agent",
+  "version": "1.0",
+  "description": "Generates modular, reusable UI components like testimonial sliders, sticky navigation, animated elements, and interactive features",
+  "capabilities": [
+    "testimonial_slider_generation",
+    "sticky_navigation_implementation",
+    "animated_hero_sections",
+    "contact_form_enhancement",
+    "call_to_action_optimization",
+    "interactive_service_cards"
+  ],
+  "input_format": {
+    "type": "seo_enhanced_theme",
+    "directory_pattern": "seo_enhanced_theme_{id}",
+    "required_files": ["index.php", "header.php", "style.css", "functions.php"]
+  },
+  "output_format": {
+    "type": "component_enhanced_theme",
+    "directory_name": "component_enhanced_theme_{id}",
+    "additions": [
+      "components/testimonials.php",
+      "components/sticky-nav.php",
+      "components/contact-form.php",
+      "js/components.js",
+      "css/components.css"
+    ]
+  },
+  "component_types": {
+    "testimonial_slider": {
+      "features": [
+        "responsive_carousel",
+        "auto_rotation",
+        "touch_swipe_support",
+        "navigation_dots",
+        "pause_on_hover"
+      ],
+      "customization": [
+        "slide_duration",
+        "transition_effects",
+        "color_schemes",
+        "layout_variations"
+      ]
+    },
+    "sticky_navigation": {
+      "features": [
+        "scroll_triggered_visibility",
+        "mobile_hamburger_menu",
+        "smooth_scroll_anchors",
+        "active_section_highlighting",
+        "responsive_breakpoints"
+      ],
+      "customization": [
+        "trigger_offset",
+        "animation_speed",
+        "background_opacity",
+        "menu_styles"
+      ]
+    },
+    "animated_hero": {
+      "features": [
+        "fade_in_animations",
+        "typing_effect_text",
+        "parallax_backgrounds",
+        "call_to_action_buttons",
+        "video_backgrounds"
+      ],
+      "customization": [
+        "animation_delays",
+        "easing_functions",
+        "background_options",
+        "text_effects"
+      ]
+    },
+    "contact_form": {
+      "features": [
+        "form_validation",
+        "spam_protection",
+        "success_messages",
+        "error_handling",
+        "mobile_optimization"
+      ],
+      "customization": [
+        "field_configurations",
+        "validation_rules",
+        "styling_options",
+        "submission_handling"
+      ]
+    },
+    "service_cards": {
+      "features": [
+        "hover_animations",
+        "icon_integration",
+        "responsive_grid",
+        "call_to_action_buttons",
+        "pricing_display"
+      ],
+      "customization": [
+        "card_layouts",
+        "animation_types",
+        "color_schemes",
+        "content_structure"
+      ]
+    }
+  },
+  "javascript_features": {
+    "vanilla_js": true,
+    "jquery_fallback": true,
+    "es6_modules": false,
+    "accessibility_support": true,
+    "performance_optimized": true,
+    "mobile_touch_events": true
+  },
+  "css_features": {
+    "css_grid": true,
+    "flexbox": true,
+    "css_animations": true,
+    "css_transitions": true,
+    "responsive_design": true,
+    "dark_mode_support": true
+  },
+  "wordpress_integration": {
+    "shortcode_support": true,
+    "widget_compatibility": true,
+    "customizer_options": true,
+    "gutenberg_blocks": false,
+    "action_hooks": true,
+    "filter_hooks": true
+  },
+  "component_specifications": {
+    "testimonial_slider": {
+      "html_structure": "semantic_markup",
+      "css_classes": "bem_methodology",
+      "javascript_events": "touch_and_mouse",
+      "accessibility": "aria_labels_and_roles",
+      "performance": "lazy_loading"
+    },
+    "sticky_navigation": {
+      "trigger_method": "intersection_observer",
+      "fallback_method": "scroll_event",
+      "mobile_behavior": "hamburger_menu",
+      "smooth_scrolling": "css_scroll_behavior",
+      "performance": "throttled_events"
+    },
+    "contact_form": {
+      "validation": "client_and_server_side",
+      "security": "nonce_and_sanitization",
+      "user_experience": "progressive_enhancement",
+      "accessibility": "form_labels_and_errors",
+      "submission": "ajax_with_fallback"
+    }
+  },
+  "design_patterns": {
+    "mobile_first": true,
+    "progressive_enhancement": true,
+    "graceful_degradation": true,
+    "semantic_html": true,
+    "accessibility_first": true,
+    "performance_budget": "< 50kb total"
+  },
+  "browser_support": {
+    "modern_browsers": ["chrome", "firefox", "safari", "edge"],
+    "mobile_browsers": ["chrome_mobile", "safari_mobile", "samsung_internet"],
+    "fallbacks": "ie11_basic_functionality",
+    "feature_detection": "modernizr_or_native"
+  },
+  "customization_options": {
+    "color_schemes": [
+      "primary_brand_colors",
+      "secondary_accent_colors",
+      "neutral_backgrounds",
+      "text_colors",
+      "hover_states"
+    ],
+    "typography": [
+      "heading_fonts",
+      "body_fonts",
+      "font_sizes",
+      "line_heights",
+      "font_weights"
+    ],
+    "spacing": [
+      "component_margins",
+      "internal_padding",
+      "grid_gaps",
+      "responsive_scaling"
+    ],
+    "animations": [
+      "duration_settings",
+      "easing_curves",
+      "delay_timings",
+      "reduced_motion_support"
+    ]
+  },
+  "quality_standards": {
+    "code_quality": "clean_and_documented",
+    "performance": "lighthouse_score_90+",
+    "accessibility": "wcag_2.1_aa_compliant",
+    "browser_testing": "cross_browser_validated",
+    "mobile_testing": "device_tested",
+    "code_validation": "w3c_compliant"
+  },
+  "testing_requirements": {
+    "functional_testing": "component_behavior",
+    "responsive_testing": "multiple_breakpoints",
+    "accessibility_testing": "screen_reader_compatible",
+    "performance_testing": "load_time_optimization",
+    "browser_testing": "cross_browser_compatibility"
+  }
+}

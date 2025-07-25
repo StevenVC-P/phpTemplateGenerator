@@ -33,20 +33,76 @@
     ]
   },
   "variation_strategies": {
+    "visual_themes": [
+      {
+        "name": "minimalist_clean",
+        "description": "Clean lines, lots of white space, subtle colors",
+        "characteristics": ["minimal_elements", "high_contrast", "geometric_shapes"]
+      },
+      {
+        "name": "bold_expressive",
+        "description": "Strong colors, dramatic typography, eye-catching elements",
+        "characteristics": ["vibrant_colors", "large_typography", "dynamic_layouts"]
+      },
+      {
+        "name": "organic_natural",
+        "description": "Curved lines, earth tones, flowing layouts",
+        "characteristics": ["rounded_corners", "natural_colors", "asymmetric_layouts"]
+      },
+      {
+        "name": "tech_modern",
+        "description": "Sharp edges, cool colors, grid-based layouts",
+        "characteristics": ["angular_design", "tech_colors", "structured_grids"]
+      },
+      {
+        "name": "artistic_creative",
+        "description": "Unique layouts, creative typography, artistic elements",
+        "characteristics": ["creative_layouts", "artistic_fonts", "decorative_elements"]
+      },
+      {
+        "name": "professional_corporate",
+        "description": "Conservative design, business colors, structured layout",
+        "characteristics": ["structured_layout", "business_colors", "formal_typography"]
+      }
+    ],
     "color_generation": {
       "methods": [
         "complementary_harmony",
         "triadic_scheme",
         "analogous_palette",
         "monochromatic_variation",
-        "split_complementary"
+        "split_complementary",
+        "tetradic_scheme",
+        "warm_palette",
+        "cool_palette",
+        "high_contrast",
+        "pastel_soft",
+        "vibrant_bold",
+        "earth_tones"
       ],
       "industry_influences": {
         "tech": ["blues", "cyans", "purples"],
         "finance": ["blues", "greens", "grays"],
         "healthcare": ["blues", "greens", "whites"],
         "creative": ["oranges", "magentas", "yellows"],
-        "corporate": ["navys", "grays", "blues"]
+        "corporate": ["navys", "grays", "blues"],
+        "landscaping": ["greens", "earth_tones", "natural_browns", "forest_greens"],
+        "pc repair": ["blues", "teals", "tech_grays"],
+        "restaurant": ["warm_reds", "golden_yellows", "rich_browns"],
+        "real estate": ["blues", "golds", "sophisticated_grays"],
+        "construction": ["oranges", "safety_yellows", "industrial_grays"],
+        "automotive": ["reds", "blacks", "metallic_grays"],
+        "beauty & wellness": ["soft_pinks", "lavenders", "spa_blues"],
+        "photography": ["artistic_purples", "creative_teals", "elegant_blacks"],
+        "marketing": ["vibrant_oranges", "energetic_reds", "modern_purples"],
+        "financial services": ["trust_blues", "prosperity_greens", "professional_grays"],
+        "education": ["knowledge_blues", "growth_greens", "warm_oranges"],
+        "travel & hospitality": ["ocean_blues", "sunset_oranges", "tropical_greens"],
+        "pet services": ["playful_blues", "friendly_greens", "warm_browns"],
+        "fitness": ["energetic_reds", "vitality_oranges", "strength_blacks"],
+        "cleaning services": ["fresh_blues", "clean_whites", "trust_greens"],
+        "consulting": ["professional_blues", "wisdom_purples", "success_greens"],
+        "legal services": ["authority_blues", "trust_grays", "professional_navys"]
       }
     },
     "layout_variations": {
@@ -74,6 +130,42 @@
           "structure": "typography_focused_minimal",
           "cta_placement": "subtle_below",
           "visual_weight": "text_dominant"
+        },
+        {
+          "name": "diagonal_split",
+          "structure": "diagonal_content_division",
+          "cta_placement": "floating_corner",
+          "visual_weight": "dynamic_asymmetric"
+        },
+        {
+          "name": "card_stack",
+          "structure": "layered_card_presentation",
+          "cta_placement": "card_integrated",
+          "visual_weight": "depth_focused"
+        },
+        {
+          "name": "full_height_sidebar",
+          "structure": "vertical_sidebar_layout",
+          "cta_placement": "sidebar_bottom",
+          "visual_weight": "content_heavy"
+        },
+        {
+          "name": "geometric_shapes",
+          "structure": "shape_based_composition",
+          "cta_placement": "shape_integrated",
+          "visual_weight": "artistic_bold"
+        },
+        {
+          "name": "magazine_style",
+          "structure": "editorial_grid_layout",
+          "cta_placement": "grid_integrated",
+          "visual_weight": "content_rich"
+        },
+        {
+          "name": "floating_elements",
+          "structure": "suspended_content_blocks",
+          "cta_placement": "floating_prominent",
+          "visual_weight": "interactive_modern"
         }
       ],
       "section_arrangements": [
@@ -81,14 +173,31 @@
         "hero_about_features_pricing_testimonials_contact",
         "hero_features_testimonials_pricing_contact",
         "hero_pricing_features_contact",
-        "hero_features_cta_pricing_contact"
+        "hero_features_cta_pricing_contact",
+        "hero_testimonials_features_about_contact",
+        "hero_split_features_testimonials_pricing_contact",
+        "hero_gallery_features_about_contact",
+        "hero_stats_features_testimonials_contact",
+        "hero_video_about_features_pricing_contact",
+        "hero_timeline_features_contact",
+        "hero_comparison_features_pricing_contact"
       ],
       "grid_systems": [
         "three_column_equal",
         "two_column_sidebar",
         "four_column_masonry",
         "alternating_rows",
-        "card_based_flexible"
+        "card_based_flexible",
+        "asymmetric_grid",
+        "magazine_layout",
+        "pinterest_masonry",
+        "hexagonal_grid",
+        "diagonal_grid",
+        "circular_arrangement",
+        "timeline_vertical",
+        "accordion_sections",
+        "tab_based_layout",
+        "carousel_sections"
       ]
     },
     "typography_variations": {
@@ -120,6 +229,48 @@
           "body": "Lato",
           "accent": "Oswald",
           "personality": "bold, confident, impactful"
+        },
+        {
+          "name": "artistic_creative",
+          "heading": "Abril Fatface",
+          "body": "Merriweather",
+          "accent": "Dancing Script",
+          "personality": "creative, artistic, expressive"
+        },
+        {
+          "name": "tech_futuristic",
+          "heading": "Orbitron",
+          "body": "Roboto",
+          "accent": "Space Mono",
+          "personality": "futuristic, tech-savvy, innovative"
+        },
+        {
+          "name": "classic_traditional",
+          "heading": "Cormorant Garamond",
+          "body": "Libre Baskerville",
+          "accent": "EB Garamond",
+          "personality": "traditional, established, trustworthy"
+        },
+        {
+          "name": "playful_modern",
+          "heading": "Fredoka One",
+          "body": "Quicksand",
+          "accent": "Comfortaa",
+          "personality": "playful, modern, approachable"
+        },
+        {
+          "name": "minimal_geometric",
+          "heading": "Work Sans",
+          "body": "IBM Plex Sans",
+          "accent": "Space Grotesk",
+          "personality": "minimal, geometric, precise"
+        },
+        {
+          "name": "warm_humanist",
+          "heading": "Merriweather",
+          "body": "PT Sans",
+          "accent": "Alegreya",
+          "personality": "warm, humanist, readable"
         }
       ],
       "size_scales": [
@@ -171,6 +322,30 @@
           "border_radius": "12px",
           "padding": "1rem 2rem",
           "shadow": "0 6px 20px rgba(0,0,0,0.08)"
+        },
+        {
+          "name": "geometric_bold",
+          "border_radius": "0px",
+          "padding": "1.25rem 3rem",
+          "shadow": "4px 4px 0px rgba(0,0,0,0.2)"
+        },
+        {
+          "name": "organic_blob",
+          "border_radius": "30px 10px 25px 15px",
+          "padding": "1rem 2.5rem",
+          "shadow": "0 8px 30px rgba(0,0,0,0.12)"
+        },
+        {
+          "name": "neon_glow",
+          "border_radius": "6px",
+          "padding": "1rem 2rem",
+          "shadow": "0 0 20px rgba(59, 130, 246, 0.5)"
+        },
+        {
+          "name": "vintage_classic",
+          "border_radius": "2px",
+          "padding": "1.5rem 3rem",
+          "shadow": "inset 0 1px 0 rgba(255,255,255,0.2)"
         }
       ],
       "card_styles": [
@@ -191,6 +366,32 @@
           "border_radius": "20px",
           "shadow": "0 8px 25px rgba(0,0,0,0.08)",
           "border": "1px solid rgba(0,0,0,0.05)"
+        },
+        {
+          "name": "geometric_sharp",
+          "border_radius": "0px",
+          "shadow": "8px 8px 0px rgba(0,0,0,0.1)",
+          "border": "3px solid #000"
+        },
+        {
+          "name": "floating_glass",
+          "border_radius": "16px",
+          "shadow": "0 20px 40px rgba(0,0,0,0.1)",
+          "border": "1px solid rgba(255,255,255,0.2)",
+          "backdrop_filter": "blur(10px)"
+        },
+        {
+          "name": "paper_torn",
+          "border_radius": "4px 20px 8px 15px",
+          "shadow": "0 6px 20px rgba(0,0,0,0.15)",
+          "border": "1px solid #ddd"
+        },
+        {
+          "name": "neon_border",
+          "border_radius": "10px",
+          "shadow": "0 4px 20px rgba(0,0,0,0.1)",
+          "border": "2px solid #00ff88",
+          "glow": "0 0 15px rgba(0,255,136,0.3)"
         }
       ]
     }
@@ -250,21 +451,63 @@
       "organic_blob_shapes",
       "diagonal_lines_pattern",
       "dot_matrix_overlay",
-      "gradient_mesh_background"
+      "gradient_mesh_background",
+      "hexagonal_honeycomb",
+      "wave_pattern_overlay",
+      "circuit_board_lines",
+      "watercolor_texture",
+      "paper_grain_texture",
+      "noise_grain_overlay",
+      "triangular_mosaic",
+      "flowing_curves",
+      "crystalline_structure",
+      "topographic_lines"
     ],
     "decorative_elements": [
       "floating_icons",
       "abstract_shapes",
       "line_art_illustrations",
       "geometric_dividers",
-      "organic_separators"
+      "organic_separators",
+      "animated_particles",
+      "gradient_orbs",
+      "hand_drawn_doodles",
+      "minimalist_icons",
+      "vintage_ornaments",
+      "modern_pictograms",
+      "nature_silhouettes",
+      "tech_circuit_elements",
+      "artistic_brush_strokes",
+      "geometric_patterns"
     ],
     "interaction_styles": [
       "hover_lift_animations",
       "color_transition_effects",
       "scale_transform_buttons",
       "slide_in_content",
-      "fade_reveal_sections"
+      "fade_reveal_sections",
+      "parallax_scroll_effects",
+      "morphing_shapes",
+      "elastic_animations",
+      "typewriter_text_reveal",
+      "stagger_animation_sequence",
+      "magnetic_cursor_effects",
+      "liquid_button_morphing",
+      "3d_tilt_interactions",
+      "glitch_text_effects",
+      "smooth_page_transitions"
+    ],
+    "layout_modifiers": [
+      "asymmetric_balance",
+      "golden_ratio_proportions",
+      "rule_of_thirds_alignment",
+      "diagonal_composition",
+      "circular_flow_layout",
+      "z_pattern_reading",
+      "f_pattern_scanning",
+      "inverted_pyramid_structure",
+      "modular_grid_system",
+      "broken_grid_creative"
     ]
   },
   "quality_assurance": {
